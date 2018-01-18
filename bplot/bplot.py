@@ -56,6 +56,19 @@ class BPlot(object):
         return self
 
 
+    # def tight_layout(self):
+    #     """TODO (ear) verify: Wraps ``matplotlib.plt.tight_layout()``'s tight_layout."""
+    #     # unclear how this might affect multiple open plots
+    #     plt.tight_layout()
+    #     return self
+
+
+    # def savefig(self, *args, **kws):
+    #     """TODO (ear) verify: Wraps ``matplotlib.plt.savefig()``'s savefig."""
+    #     plt.savefig(*args, **kws)
+    #     return self
+
+
     def tick_params(self, *args, **kws):
         """A wrapper around ``matplotlib.axes.Axes.tick_params``."""
 
@@ -113,7 +126,7 @@ class BPlot(object):
 
 
     def density(self, x=None, group=None, color=False, data=None,
-                n=101, bw_method=None, **kws):
+                label=False, n=101, bw_method=None, **kws):
         """Draw density plot.
 
         Group data stored in ``x`` by ``group``.
@@ -155,6 +168,8 @@ class BPlot(object):
                 density = stats.kde.gaussian_kde(group[x].values.ravel(), bw_method)
                 if color:
                     kws['c'] = cols[i]
+                if label:
+                    kws['label'] = name
                 self.axes.plot(xs, density(xs), **kws)
 
         else:
