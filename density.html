@@ -156,6 +156,49 @@
             
   <div class="section" id="density">
 <h1>density<a class="headerlink" href="#density" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bplot.density">
+<code class="descclassname">bplot.</code><code class="descname">density</code><span class="sig-paren">(</span><em>x</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>bw_method=None</em>, <em>n=101</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/density.html#density"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw density plot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
+<dd><p class="first last">The vector of data for which the standard five number summary
+is sought.</p>
+</dd>
+<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘tab:blue’ by default</span></dt>
+<dd><p class="first last">The color of the line of the density plot.</p>
+</dd>
+<dt><strong>label</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘’ (empty) by default</span></dt>
+<dd><p class="first last">The label within a potential legend.</p>
+</dd>
+<dt><strong>bw_method</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, None by default</span></dt>
+<dd><p class="first last">TODO (ear) The bandwidth method used for smoothing.</p>
+</dd>
+<dt><strong>n</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, 101 by default</span></dt>
+<dd><p class="first last">The number of interpolatino points.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes, None by default</span></dt>
+<dd><p class="first last">The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>out</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes</span></dt>
+<dd><p class="first last">The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

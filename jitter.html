@@ -156,6 +156,57 @@
             
   <div class="section" id="jitter">
 <h1>jitter<a class="headerlink" href="#jitter" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bplot.jitter">
+<code class="descclassname">bplot.</code><code class="descname">jitter</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>jitter_x=0.4</em>, <em>jitter_y=0.4</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>size=36</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/jitter.html#jitter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.jitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw jittered points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
+<dd><p class="first last">The vector of data for which jittered points are drawn.</p>
+</dd>
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
+<dd><p class="first last">The vector of data for which jittered points are drawn.</p>
+</dd>
+<dt><strong>jitter_x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 0.4 by default</span></dt>
+<dd><p class="first last">The resolution of the jitter for the x-axis values.</p>
+</dd>
+<dt><strong>jitter_y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 0.4 by default</span></dt>
+<dd><p class="first last">The resolution of the jitter for the y-axis values.</p>
+</dd>
+<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘tab:blue’ by default</span></dt>
+<dd><p class="first last">The color of the box.</p>
+</dd>
+<dt><strong>label</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘’ (empty) by default</span></dt>
+<dd><p class="first last">The label within a potential legend.</p>
+</dd>
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘o’ by default</span></dt>
+<dd><p class="first last">The shape of the points to draw.</p>
+</dd>
+<dt><strong>size</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, 36 by default</span></dt>
+<dd><p class="first last">The size of the points to draw.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes, None by default</span></dt>
+<dd><p class="first last">The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>out</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes</span></dt>
+<dd><p class="first last">The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 

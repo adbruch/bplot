@@ -156,6 +156,47 @@
             
   <div class="section" id="histogram">
 <h1>histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bplot.histogram">
+<code class="descclassname">bplot.</code><code class="descname">histogram</code><span class="sig-paren">(</span><em>x</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>bins='auto'</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/histogram.html#histogram"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a histogrm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
+<dd><p class="first last">The vector of data from which the histogram is drawn.</p>
+</dd>
+<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘tab:blue’ by default</span></dt>
+<dd><p class="first last">The color of the outline of the histogram.</p>
+</dd>
+<dt><strong>label</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘’ (empty) by default</span></dt>
+<dd><p class="first last">The label within a potential legend.</p>
+</dd>
+<dt><strong>bins</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{int, string}, ‘auto’ by default</span></dt>
+<dd><p class="first last">The number of bins.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes, None by default</span></dt>
+<dd><p class="first last">The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>(n, bins, patches)</strong> <span class="classifier-delimiter">:</span> <span class="classifier">3-tuple</span></dt>
+<dd><p class="first last"><cite>n</cite> is … TODO (ear) copy output from matplotlib
+<cite>bins</cite> …
+<cite>patches</cite> …</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 
