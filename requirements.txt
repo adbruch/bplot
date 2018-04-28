@@ -1,0 +1,8 @@
+matplotlib==2.2.2
+numpy==1.14.2
+numpydoc==0.8.0
+pandas==0.22.0
+scipy==0.19.1
+Sphinx==1.7.4
+sphinx-rtd-theme==0.3.0
+yapf==0.21.0

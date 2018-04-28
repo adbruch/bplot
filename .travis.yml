@@ -1,8 +1,8 @@
 language: python
-cache:
-  packages: true
-  directories:
-  - "$TRAVIS_BUILD_DIR/_doc_files"
+python:
+  - "3.6"
+install:
+  pip install -r requirements.txt
 sudo: false
 env:
   global:
