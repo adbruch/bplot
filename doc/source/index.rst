@@ -24,6 +24,7 @@ Available plotting tools:
    std
    ste
    trace
+   violin
 
 
 Indices and tables
