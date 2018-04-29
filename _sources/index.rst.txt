@@ -18,6 +18,7 @@ Available plotting tools:
    histogram
    jitter
    line
+   percentile
    point
    rug
    std

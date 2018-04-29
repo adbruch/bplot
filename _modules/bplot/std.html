@@ -83,6 +83,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../histogram.html">histogram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jitter.html">jitter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../line.html">line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../percentile.html">percentile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../point.html">point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rug.html">rug</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../std.html">standard deviation</a></li>
@@ -200,11 +201,11 @@
 <span class="sd">        The `Axes` onto which the box was drawn.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 
     <span class="n">ybar</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-    <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span> <span class="o">=</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">z_mid</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">z_mid</span> <span class="o">*</span> <span class="n">std</span>
+    <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span> <span class="o">=</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span>
     <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span> <span class="o">=</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span>
 
     <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
@@ -257,12 +258,11 @@
 <span class="sd">        The `Axes` onto which the box was drawn.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 
     <span class="n">xbar</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-    <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span> <span class="o">=</span> <span class="n">xbar</span> <span class="o">-</span> <span class="n">z_mid</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">xbar</span> <span class="o">+</span> <span class="n">z_mid</span> <span class="o">*</span> <span class="n">std</span>
+    <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span> <span class="o">=</span> <span class="n">xbar</span> <span class="o">-</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">xbar</span> <span class="o">+</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span>
     <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span> <span class="o">=</span> <span class="n">xbar</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">xbar</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span>
 
     <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>

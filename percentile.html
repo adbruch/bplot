@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>line &mdash; bplot 0.0.1 documentation</title>
+  <title>percentile &mdash; bplot 0.0.1 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="percentile" href="percentile.html" />
-    <link rel="prev" title="jitter" href="jitter.html" /> 
+    <link rel="next" title="point" href="point.html" />
+    <link rel="prev" title="line" href="line.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,8 +84,8 @@
 <li class="toctree-l1"><a class="reference internal" href="density.html">density</a></li>
 <li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jitter.html">jitter</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">line</a></li>
-<li class="toctree-l1"><a class="reference internal" href="percentile.html">percentile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line.html">line</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">percentile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="point.html">point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rug.html">rug</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std.html">standard deviation</a></li>
@@ -136,13 +136,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>line</li>
+      <li>percentile</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/line.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/percentile.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,28 +155,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="line">
-<h1>line<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h1>
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="percentile">
+<h1>percentile<a class="headerlink" href="#percentile" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="bplot.line">
-<code class="descclassname">bplot.</code><code class="descname">line</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/line.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw line.</p>
+<dt id="bplot.percentile">
+<code class="descclassname">bplot.</code><code class="descname">percentile</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>outer=0.8</em>, <em>inner=0.5</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw vertical percentile interval.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
-<dd><p class="first last">The vector of x-axis points for the line is drawn.</p>
+<dt><strong>x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The location along the x-axis at which the interval is placed.</p>
 </dd>
 <dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
-<dd><p class="first last">The vector of y-axis points for the line is drawn.</p>
+<dd><p class="first last">The vector of data for which the <cite>outer</cite> percentile interval is sought.</p>
+</dd>
+<dt><strong>outer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 0.8 by default</span></dt>
+<dd><p class="first last">The outer interval percentage.</p>
+</dd>
+<dt><strong>inner</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 0.5 by default</span></dt>
+<dd><p class="first last">The inner interval percentage.</p>
 </dd>
 <dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘tab:blue’ by default</span></dt>
 <dd><p class="first last">The color of the box.</p>
 </dd>
 <dt><strong>label</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘’ (empty) by default</span></dt>
 <dd><p class="first last">The label within a potential legend.</p>
+</dd>
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘o’ by default</span></dt>
+<dd><p class="first last">The shape of the median within the box.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes, None by default</span></dt>
+<dd><p class="first last">The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>out</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes</span></dt>
+<dd><p class="first last">The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.percentile_h">
+<code class="descclassname">bplot.</code><code class="descname">percentile_h</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>outer=0.8</em>, <em>inner=0.5</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw horizontal percentile interval.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
+<dd><p class="first last">The vector of data for which the <cite>outer</cite> percentile interval is sought.</p>
+</dd>
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The location along the y-axis at which the interval is placed.</p>
+</dd>
+<dt><strong>outer</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 0.8 by default</span></dt>
+<dd><p class="first last">The outer interval percentage.</p>
+</dd>
+<dt><strong>inner</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 0.5 by default</span></dt>
+<dd><p class="first last">The inner interval percentage.</p>
+</dd>
+<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘tab:blue’ by default</span></dt>
+<dd><p class="first last">The color of the box.</p>
+</dd>
+<dt><strong>label</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘’ (empty) by default</span></dt>
+<dd><p class="first last">The label within a potential legend.</p>
+</dd>
+<dt><strong>shape</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘o’ by default</span></dt>
+<dd><p class="first last">The shape of the median within the box.</p>
 </dd>
 <dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes, None by default</span></dt>
 <dd><p class="first last">The axis onto which the box is drawn.  If left as None,
@@ -206,10 +265,10 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="percentile.html" class="btn btn-neutral float-right" title="percentile" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="point.html" class="btn btn-neutral float-right" title="point" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jitter.html" class="btn btn-neutral" title="jitter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="line.html" class="btn btn-neutral" title="line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
