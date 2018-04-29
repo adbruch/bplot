@@ -47,11 +47,11 @@ def std(x,
         The `Axes` onto which the box was drawn.
     """
 
-    x, y, ax = check_data(x, y, ax)
+    _, y, ax = check_data(None, y, ax)
 
     ybar, std = np.mean(y), np.std(y)
 
-    lw_mid, uw_mid = ybar - z_mid * std, ybar + z_mid * std
+    lw_mid, uw_mid = ybar - z_inner * std, ybar + z_inner * std
     lw, uw = ybar - z * std, ybar + z * std
 
     ax.vlines(x, lw, uw, color=color)
@@ -104,12 +104,11 @@ def std_h(x,
         The `Axes` onto which the box was drawn.
     """
 
-    if ax is None:
-        ax = plt.gca()
+    x, _, ax = check_data(x, None, ax)
 
     xbar, std = np.mean(x), np.std(x)
 
-    lw_mid, uw_mid = xbar - z_mid * std, xbar + z_mid * std
+    lw_mid, uw_mid = xbar - z_inner * std, xbar + z_inner * std
     lw, uw = xbar - z * std, xbar + z * std
 
     ax.hlines(y, lw, uw, color=color)

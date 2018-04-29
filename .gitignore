@@ -1,6 +1,8 @@
 *.pyc
 *.sw*
 build/
+bplot/__pycache__
+doc/build
 .ipynb_checkpoints/
 dist/
 bplot.egg-info/
