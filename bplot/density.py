@@ -17,8 +17,7 @@ def density(x,
     Parameters
     ----------
     x : {numpy.array, pandas.core.series.Series}
-        The vector of data for which the standard five number summary
-        is sought.
+        The vector of data for which the density plot is sought.
 
     color : string, 'tab:blue' by default
         The color of the line of the density plot.

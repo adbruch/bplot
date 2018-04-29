@@ -10,5 +10,6 @@ from .rug import rug
 from .std import std, std_h
 from .ste import ste, ste_h
 from .trace import trace
+from .violin import violin, violin_h
 
 __version__ = '0.1'
