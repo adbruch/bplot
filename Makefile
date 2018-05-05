@@ -1,5 +1,5 @@
 yapf:
-	yapf -r -i -e bplot/bplot.py bplot/
+	yapf -r -i bplot/
 
 doc:
 	$(MAKE) -C doc html

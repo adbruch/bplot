@@ -3,6 +3,7 @@ from .check_data import check_data
 
 all = ['percentile', 'percentile_h']
 
+
 def percentile(x,
                y,
                outer=.8,
@@ -54,16 +55,27 @@ def percentile(x,
 
     alpha_l, alpha_lm = (1 - outer) / 2, (1 - inner) / 2
     l, lm, m, um, u = alpha_l, alpha_lm, .5, 1 - alpha_lm, 1 - alpha_l
-    q_l, q_lm, q_m, q_um, q_u = np.percentile(y, np.array([l, lm, m, um, u]) * 100)
+    q_l, q_lm, q_m, q_um, q_u = np.percentile(
+        y,
+        np.array([l, lm, m, um, u]) * 100)
 
     ax.vlines(x, q_l, q_u, color=color)
     ax.vlines(x, q_lm, q_um, lw=4, color=color)
 
-    out = ax.plot(x, q_m, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(
+        x, q_m, markersize=10, marker=shape, color=color, label=label)
     return out
 
 
-def percentile_h(x, y, outer=.8, inner=.5, color='tab:blue', label='', shape='o', ax=None, **kws):
+def percentile_h(x,
+                 y,
+                 outer=.8,
+                 inner=.5,
+                 color='tab:blue',
+                 label='',
+                 shape='o',
+                 ax=None,
+                 **kws):
     """Draw horizontal percentile interval.
 
 
@@ -106,10 +118,13 @@ def percentile_h(x, y, outer=.8, inner=.5, color='tab:blue', label='', shape='o'
 
     alpha_l, alpha_lm = (1 - outer) / 2, (1 - inner) / 2
     l, lm, m, um, u = alpha_l, alpha_lm, .5, 1 - alpha_lm, 1 - alpha_l
-    q_l, q_lm, q_m, q_um, q_u = np.percentile(x, np.array([l, lm, m, um, u]) * 100)
+    q_l, q_lm, q_m, q_um, q_u = np.percentile(
+        x,
+        np.array([l, lm, m, um, u]) * 100)
 
     ax.hlines(y, q_l, q_u, color=color)
     ax.hlines(y, q_lm, q_um, lw=4, color=color)
 
-    out = ax.plot(q_m, y, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(
+        q_m, y, markersize=10, marker=shape, color=color, label=label)
     return out
