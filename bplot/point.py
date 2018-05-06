@@ -1,7 +1,7 @@
 from .check_data import check_data
 
 
-def point(x, y, color='tab:blue', label='', shape='o', size=36, ax=None,
+def point(x, y, color='tab:blue', alpha=1, label='', shape='o', size=36, ax=None,
           **kws):
     """Draw scatter plot.
 
@@ -16,6 +16,9 @@ def point(x, y, color='tab:blue', label='', shape='o', size=36, ax=None,
 
     color : string, 'tab:blue' by default
         The color of the box.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     label : string, '' (empty) by default
         The label within a potential legend.
@@ -40,5 +43,5 @@ def point(x, y, color='tab:blue', label='', shape='o', size=36, ax=None,
 
     x, y, ax = check_data(x, y, ax)
 
-    out = ax.scatter(x, y, c=color, label=label, marker=shape)
+    out = ax.scatter(x, y, c=color, label=label, alpha=alpha, marker=shape, s=size)
     return out
