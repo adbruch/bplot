@@ -1,3 +1,4 @@
+from .autocorrelation import autocorrelation
 from .box import box, box_h
 from .colors import colors
 from .curve import curve
@@ -5,6 +6,7 @@ from .density import density
 from .grid import grid
 from .histogram import histogram
 from .jitter import jitter
+from .lag import lag
 from .point import point
 from .percentile import percentile, percentile_h
 from .rug import rug
