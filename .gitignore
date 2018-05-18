@@ -10,3 +10,4 @@ bplot.egg-info/
 .coverage
 cover/
 .idea
+*.txt

@@ -14,6 +14,7 @@ Available plotting tools:
    :maxdepth: 2
 
    box
+   curve
    density
    histogram
    jitter

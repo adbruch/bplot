@@ -7,6 +7,7 @@ from .grid import grid
 from .histogram import histogram
 from .jitter import jitter
 from .lag import lag
+from .line import line
 from .point import point
 from .percentile import percentile, percentile_h
 from .rug import rug

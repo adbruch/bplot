@@ -58,12 +58,15 @@ def jitter(x,
 
     x, y, ax = check_data(x, y, ax)
 
-    resolution_x = np.min(np.diff(np.sort(x.unique())).tolist() or 1)
-    resolution_y = np.min(np.diff(np.sort(x.unique())).tolist() or 1)
+    resolution_x = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
+    resolution_y = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
 
-    jx = jitter_x * np.random.uniform(high=resolution_x, size=x.shape[0])
-    jy = jitter_y * np.random.uniform(high=resolution_y, size=y.shape[0])
+    r_x = resolution_x/2
+    r_y = resolution_y/2
 
-    out = ax.scatter(
-        x + jx, y + jy, c=color, label=label, marker=shape, s=size)
+    jx = jitter_x * np.random.uniform(low=-r_x, high=r_x, size=x.shape[0])
+    jy = jitter_y * np.random.uniform(low=-r_y, high=r_y, size=y.shape[0])
+
+    out = ax.scatter(x + jx, y + jy,
+                     c=color, label=label, marker=shape, s=size)
     return out
