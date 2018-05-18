@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; bplot 0.0.1 documentation</title>
+  <title>curve &mdash; bplot 0.0.1 documentation</title>
   
 
   
@@ -28,8 +27,10 @@
   
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="density" href="density.html" />
+    <link rel="prev" title="box" href="box.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -78,9 +79,9 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="box.html">box</a></li>
-<li class="toctree-l1"><a class="reference internal" href="curve.html">curve</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">curve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="density.html">density</a></li>
 <li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jitter.html">jitter</a></li>
@@ -137,12 +138,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>curve</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/curve.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -154,139 +157,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
+  <div class="section" id="curve">
+<h1>curve<a class="headerlink" href="#curve" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bplot.curve">
+<code class="descclassname">bplot.</code><code class="descname">curve</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>color='tab:blue'</em>, <em>alpha=1</em>, <em>label=''</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/curve.html#curve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw curve.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>x</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
+<dd><p class="first last">The vector of x-axis points for the curve is drawn.</p>
+</dd>
+<dt><strong>y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{numpy.array, pandas.core.series.Series}</span></dt>
+<dd><p class="first last">The vector of y-axis points for the curve is drawn.</p>
+</dd>
+<dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘tab:blue’ by default</span></dt>
+<dd><p class="first last">The color of the box.</p>
+</dd>
+<dt><strong>alpha</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 1.0 by default</span></dt>
+<dd><p class="first last">The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p>
+</dd>
+<dt><strong>label</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘’ (empty) by default</span></dt>
+<dd><p class="first last">The label within a potential legend.</p>
+</dd>
+<dt><strong>ax</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes, None by default</span></dt>
+<dd><p class="first last">The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>out</strong> <span class="classifier-delimiter">:</span> <span class="classifier">matplotlib.pyplot.Axes</span></dt>
+<dd><p class="first last">The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- <a href="#B"><strong>B</strong></a>
- | <a href="#C"><strong>C</strong></a>
- | <a href="#D"><strong>D</strong></a>
- | <a href="#H"><strong>H</strong></a>
- | <a href="#J"><strong>J</strong></a>
- | <a href="#L"><strong>L</strong></a>
- | <a href="#P"><strong>P</strong></a>
- | <a href="#R"><strong>R</strong></a>
- | <a href="#S"><strong>S</strong></a>
- | <a href="#T"><strong>T</strong></a>
- | <a href="#V"><strong>V</strong></a>
- 
 </div>
-<h2 id="B">B</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="box.html#bplot.box">box() (in module bplot)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="box.html#bplot.box_h">box_h() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="C">C</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curve.html#bplot.curve">curve() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="D">D</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="density.html#bplot.density">density() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="H">H</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="histogram.html#bplot.histogram">histogram() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="J">J</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="jitter.html#bplot.jitter">jitter() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="L">L</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="line.html#bplot.line">line() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="percentile.html#bplot.percentile">percentile() (in module bplot)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="percentile.html#bplot.percentile_h">percentile_h() (in module bplot)</a>
-</li>
-      <li><a href="point.html#bplot.point">point() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="rug.html#bplot.rug">rug() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="S">S</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="std.html#bplot.std">std() (in module bplot)</a>
-</li>
-      <li><a href="std.html#bplot.std_h">std_h() (in module bplot)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="ste.html#bplot.ste">ste() (in module bplot)</a>
-</li>
-      <li><a href="ste.html#bplot.ste_h">ste_h() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="T">T</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="trace.html#bplot.trace">trace() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="V">V</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="violin.html#bplot.violin">violin() (in module bplot)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="violin.html#bplot.violin_h">violin_h() (in module bplot)</a>
-</li>
-  </ul></td>
-</tr></table>
-
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="density.html" class="btn btn-neutral float-right" title="density" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="box.html" class="btn btn-neutral" title="box" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

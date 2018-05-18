@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bplot.violin &mdash; bplot 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> bplot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../box.html">box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../curve.html">curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../density.html">density</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jitter.html">jitter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../line.html">line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../percentile.html">percentile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../point.html">point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rug.html">rug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../std.html">standard deviation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ste.html">standard error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trace.html">trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../violin.html">violin</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">bplot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>bplot.violin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for bplot.violin</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="violin"><a class="viewcode-back" href="../../violin.html#bplot.violin">[docs]</a><span class="k">def</span> <span class="nf">violin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+           <span class="n">y</span><span class="p">,</span>
+           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+           <span class="n">bw_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+           <span class="n">n</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span>
+           <span class="n">left_half</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+           <span class="n">right_half</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+           <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+           <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Draw vertical violin plot.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : int</span>
+<span class="sd">        The location along the x-axis at which the vertical violin is placed.</span>
+
+<span class="sd">    y : {numpy.array, pandas.core.series.Series}</span>
+<span class="sd">        The vector of data for which the violin plot is sought.</span>
+
+<span class="sd">    color : string, &#39;tab:blue&#39; by default</span>
+<span class="sd">        The color of the line of the violin plot.</span>
+
+<span class="sd">    label : string, &#39;&#39; (empty) by default</span>
+<span class="sd">        The label within a potential legend.</span>
+
+<span class="sd">    bw_method : string, None by default</span>
+<span class="sd">        The bandwidth estimator method.  If None, &#39;scott&#39; is used.</span>
+
+<span class="sd">    n : int, 101 by default</span>
+<span class="sd">        The number of interpolation points.</span>
+
+<span class="sd">    left_half : bool, True by default</span>
+<span class="sd">        Whether or not to draw the left half of the violin plot.  Draw</span>
+<span class="sd">        only the right half by setting this to False.</span>
+
+<span class="sd">    right_half : bool, True by default</span>
+<span class="sd">        Whether or not to draw the right half of the violin plot.  Draw</span>
+<span class="sd">        only the left half by setting this to False.</span>
+
+<span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
+<span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
+<span class="sd">        matplotlib.pyplot.gca() is called to get the current `Axes`.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ax : matplotlib.pyplot.Axes</span>
+<span class="sd">        The `Axes` onto which the box was drawn.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span>
+        <span class="n">y</span><span class="p">,</span>
+        <span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">],</span>
+        <span class="n">bw_method</span><span class="o">=</span><span class="n">bw_method</span><span class="p">,</span>
+        <span class="n">showmeans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">showextrema</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">showmedians</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">points</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">color</span><span class="p">:</span>
+        <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">left_half</span><span class="p">:</span>
+        <span class="n">vertices</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">right_half</span><span class="p">:</span>
+        <span class="n">vertices</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ax</span></div>
+
+
+<div class="viewcode-block" id="violin_h"><a class="viewcode-back" href="../../violin.html#bplot.violin_h">[docs]</a><span class="k">def</span> <span class="nf">violin_h</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
+             <span class="n">y</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="n">bw_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">n</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span>
+             <span class="n">top_half</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">bottom_half</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Draw horizontal violin plot.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : {numpy.array, pandas.core.series.Series}</span>
+<span class="sd">        The vector of data for which the violin plot is sought.</span>
+
+<span class="sd">    y : int</span>
+<span class="sd">        The location along the y-axis at which the horizontal violin is placed.</span>
+
+<span class="sd">    color : string, &#39;tab:blue&#39; by default</span>
+<span class="sd">        The color of the line of the violin plot.</span>
+
+<span class="sd">    label : string, &#39;&#39; (empty) by default</span>
+<span class="sd">        The label within a potential legend.</span>
+
+<span class="sd">    bw_method : string, None by default</span>
+<span class="sd">        The bandwidth estimator method.  If None, &#39;scott&#39; is used.</span>
+
+<span class="sd">    n : int, 101 by default</span>
+<span class="sd">        The number of interpolation points.</span>
+
+<span class="sd">    top_half : bool, True by default</span>
+<span class="sd">        Whether or not to draw the top half of the violin plot.  Draw</span>
+<span class="sd">        only the bottom half by setting this to False.</span>
+
+<span class="sd">    bottom_half : bool, True by default</span>
+<span class="sd">        Whether or not to draw the top half of the violin plot.  Draw</span>
+<span class="sd">        only the bottom half by setting this to False.</span>
+
+<span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
+<span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
+<span class="sd">        matplotlib.pyplot.gca() is called to get the current `Axes`.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ax : matplotlib.pyplot.Axes</span>
+<span class="sd">        The `Axes` onto which the box was drawn.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span>
+        <span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="p">],</span>
+        <span class="n">bw_method</span><span class="o">=</span><span class="n">bw_method</span><span class="p">,</span>
+        <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">showmeans</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">showextrema</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">showmedians</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">points</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">color</span><span class="p">:</span>
+        <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">top_half</span><span class="p">:</span>
+        <span class="n">vertices</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bottom_half</span><span class="p">:</span>
+        <span class="n">vertices</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">parts</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_paths</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ax</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Edward A. Roualdes.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

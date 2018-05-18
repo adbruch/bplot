@@ -14,6 +14,7 @@ Available plotting tools:
    :maxdepth: 2
 
    box
+   curve
    density
    histogram
    jitter
@@ -24,6 +25,7 @@ Available plotting tools:
    std
    ste
    trace
+   violin
 
 
 Indices and tables

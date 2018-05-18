@@ -81,6 +81,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="box.html">box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curve.html">curve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="density.html">density</a></li>
 <li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jitter.html">jitter</a></li>
@@ -91,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="std.html">standard deviation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ste.html">standard error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trace.html">trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="violin.html">violin</a></li>
 </ul>
 
             
@@ -159,7 +161,7 @@
 <h1>point<a class="headerlink" href="#point" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bplot.point">
-<code class="descclassname">bplot.</code><code class="descname">point</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>size=36</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/point.html#point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.point" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">bplot.</code><code class="descname">point</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>color='tab:blue'</em>, <em>alpha=1</em>, <em>label=''</em>, <em>shape='o'</em>, <em>size=36</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/point.html#point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw scatter plot.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -174,6 +176,9 @@
 </dd>
 <dt><strong>color</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘tab:blue’ by default</span></dt>
 <dd><p class="first last">The color of the box.</p>
+</dd>
+<dt><strong>alpha</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, 1.0 by default</span></dt>
+<dd><p class="first last">The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p>
 </dd>
 <dt><strong>label</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, ‘’ (empty) by default</span></dt>
 <dd><p class="first last">The label within a potential legend.</p>
