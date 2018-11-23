@@ -13,4 +13,4 @@ cd doc-output
 cp -r ../doc/build/html/* ./
 git add --all *
 git commit -m"Update the docs" || true
-git push -v origin gh-pages
+git push -q origin gh-pages
