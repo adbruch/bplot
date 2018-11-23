@@ -77,7 +77,8 @@
               
             
             
-              <ul>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../box.html">box</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../curve.html">curve</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../density.html">density</a></li>
@@ -87,6 +88,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../percentile.html">percentile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../point.html">point</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rug.html">rug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mad.html">median absolute deviation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../std.html">standard deviation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../ste.html">standard error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../trace.html">trace</a></li>
@@ -154,12 +156,13 @@
            <div itemprop="articleBody">
             
   <h1>Source code for bplot.histogram</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
+<span></span><span class="kn">from</span> <span class="nn">bplot.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
 
 <span class="nb">all</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;histogram&#39;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="histogram"><a class="viewcode-back" href="../../histogram.html#bplot.histogram">[docs]</a><span class="k">def</span> <span class="nf">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="histogram"><a class="viewcode-back" href="../../histogram.html#bplot.histogram">[docs]</a><span class="k">def</span> <span class="nf">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+              <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Draw a histogrm.</span>
 
 <span class="sd">    Parameters</span>
@@ -192,7 +195,8 @@
     <span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 
     <span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span></div>
+        <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="n">layer</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rug &mdash; bplot 0.0.1 documentation</title>
+  <title>median absolute deviation &mdash; bplot 0.0.1 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="median absolute deviation" href="mad.html" />
-    <link rel="prev" title="point" href="point.html" /> 
+    <link rel="next" title="standard deviation" href="std.html" />
+    <link rel="prev" title="rug" href="rug.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -89,8 +89,8 @@
 <li class="toctree-l1"><a class="reference internal" href="line.html">line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="percentile.html">percentile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="point.html">point</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">rug</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mad.html">median absolute deviation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rug.html">rug</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">median absolute deviation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std.html">standard deviation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ste.html">standard error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trace.html">trace</a></li>
@@ -140,13 +140,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>rug</li>
+      <li>median absolute deviation</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/rug.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/mad.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -159,21 +159,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rug">
-<h1>rug<a class="headerlink" href="#rug" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="median-absolute-deviation">
+<h1>median absolute deviation<a class="headerlink" href="#median-absolute-deviation" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="bplot.rug">
-<code class="descclassname">bplot.</code><code class="descname">rug</code><span class="sig-paren">(</span><em>x</em>, <em>y=0</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/rug.html#rug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.rug" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw rug.</p>
+<dt id="bplot.mad">
+<code class="descclassname">bplot.</code><code class="descname">mad</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z=1.96</em>, <em>z_inner=0.675</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/mad.html#mad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.mad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw vertical median absolute deviation intervals.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of x-axis data for the rug is drawn.</li>
-<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>0 by default</em>) – The y-axis specifying the base of the rug.</li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the x-axis at which the vertical interval is placed.</li>
+<li><strong>y</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the standard deviation is sought.</li>
+<li><strong>z</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.96 by default</em>) – The number of standard deviations from the mean for the outer bound.</li>
+<li><strong>z_inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.675 by default</em>) – The number of standard deviations from the mean for the inner bound.</li>
 <li><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the rug.</li>
 <li><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</li>
+<li><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the mean point.</li>
+<li><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>out</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matplotlib.pyplot.Axes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.mad_h">
+<code class="descclassname">bplot.</code><code class="descname">mad_h</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z=1.96</em>, <em>z_inner=0.675</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/mad.html#mad_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.mad_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw horizontal median absolute deviation intervals.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the standard deviation interval is sought.</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the y-axis at which the vertical interval is placed.</li>
+<li><strong>z_inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.675 by default</em>) – The number of standard deviations from the mean for the inner bound.</li>
+<li><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the rug.</li>
+<li><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</li>
+<li><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the mean point.</li>
 <li><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
 </ul>
@@ -199,10 +232,10 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mad.html" class="btn btn-neutral float-right" title="median absolute deviation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="std.html" class="btn btn-neutral float-right" title="standard deviation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="point.html" class="btn btn-neutral" title="point" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rug.html" class="btn btn-neutral" title="rug" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
