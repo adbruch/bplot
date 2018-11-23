@@ -3,3 +3,6 @@ yapf:
 
 doc:
 	$(MAKE) -C doc html
+
+clean-doc:
+	$(MAKE) -C clean

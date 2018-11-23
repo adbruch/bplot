@@ -2,4 +2,6 @@
 
 pip install .
 
-sphinx-build -M html "doc/source" "doc/build"
+make clean-doc
+
+make -B doc
