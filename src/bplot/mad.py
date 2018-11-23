@@ -2,6 +2,9 @@ from bplot.check_data import check_data
 import numpy as np
 from scipy.stats import norm
 
+def mad_std(x):
+    return np.median(np.abs(x - np.median(x)))
+
 
 def mad(x,
         y,
@@ -11,7 +14,7 @@ def mad(x,
         label='',
         shape='o',
         ax=None):
-    """Draw vertical standard deviation intervals.
+    """Draw vertical median absolute deviation intervals.
 
 
     Parameters
@@ -50,7 +53,7 @@ def mad(x,
 
     _, y, ax = check_data(None, y, ax)
 
-    med, mad = np.median(y), np.mad(y) / norm.ppf(.75)
+    med, mad = np.median(y), mad_std(y) / norm.ppf(.75)
 
     lw_mid, uw_mid = med - z_inner * mad, med + z_inner * mad
     lw, uw = med - z * mad, med + z * mad
@@ -71,7 +74,7 @@ def mad_h(x,
           label='',
           shape='o',
           ax=None):
-    """Draw horizontal standard deviation intervals.
+    """Draw horizontal median absolute deviation intervals.
 
 
     Parameters
@@ -107,7 +110,7 @@ def mad_h(x,
 
     x, _, ax = check_data(x, None, ax)
 
-    med, mad = np.median(x), np.mad(x) / norm.ppf(.75)
+    med, mad = np.median(x), mad_std(x) / norm.ppf(.75)
 
     lw_mid, uw_mid = med - z_inner * mad, med + z_inner * mad
     lw, uw = med - z * mad, med + z * mad
