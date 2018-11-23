@@ -1,9 +1,10 @@
-from .check_data import check_data
+from bplot.check_data import check_data
 
 all = ['histogram']
 
 
-def histogram(x, color='tab:blue', label='', bins='auto', ax=None):
+def histogram(x, color='tab:blue', label='', bins='auto',
+              size=None, alpha=None, ax=None, layer=None):
     """Draw a histogrm.
 
     Parameters
@@ -36,4 +37,5 @@ def histogram(x, color='tab:blue', label='', bins='auto', ax=None):
     x, _, ax = check_data(x, None, ax)
 
     n, bins, patches = ax.hist(
-        x, color=color, label=label, density=True, histtype='step', bins=bins)
+        x, color=color, label=label, density=True, histtype='step',
+        alpha=alpha, bins=bins, zorder=layer)

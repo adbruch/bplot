@@ -1,18 +1,18 @@
-from .check_data import check_data
+from bplot.check_data import check_data
 
-all = ['curve']
 
-def curve(x, y, color='tab:blue', alpha=1, label='', ax=None, **kws):
-    """Draw curve.
+def point(x, y, color='tab:blue', alpha=1, label='', shape='o', size=36, ax=None,
+          **kws):
+    """Draw scatter plot.
 
 
     Parameters
     ----------
     x : {numpy.array, pandas.core.series.Series}
-        The vector of x-axis points for the curve is drawn.
+        The vector of x-axis data for which points are drawn.
 
     y : {numpy.array, pandas.core.series.Series}
-        The vector of y-axis points for the curve is drawn.
+        The vector of y-axis data for which points are drawn.
 
     color : string, 'tab:blue' by default
         The color of the box.
@@ -22,6 +22,12 @@ def curve(x, y, color='tab:blue', alpha=1, label='', ax=None, **kws):
 
     label : string, '' (empty) by default
         The label within a potential legend.
+
+    shape : string, 'o' by default
+        The shape of the points to draw.
+
+    size : int, 36 by default
+        The size of the points to draw.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -37,5 +43,5 @@ def curve(x, y, color='tab:blue', alpha=1, label='', ax=None, **kws):
 
     x, y, ax = check_data(x, y, ax)
 
-    out = ax.plot(x, y, '-', color=color, alpha=alpha, label=label, **kws)
+    out = ax.scatter(x, y, c=color, label=label, alpha=alpha, marker=shape, s=size)
     return out

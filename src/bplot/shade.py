@@ -1,4 +1,4 @@
-from .check_data import check_data
+from bplot.check_data import check_data
 
 all = ['shade_x', 'shade_y']
 

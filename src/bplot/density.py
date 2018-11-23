@@ -1,4 +1,4 @@
-from .check_data import check_data
+from bplot.check_data import check_data
 import numpy as np
 from scipy import stats
 
@@ -43,7 +43,7 @@ def density(x,
         The `Axes` onto which the box was drawn.
     """
 
-    x, _, ax = check_data(x, None, ax)
+    x, _, ax = check_data(x=x, y=None, ax=ax)
 
     (x_min, x_max) = np.min(x), np.max(x)
     xs = np.linspace(x_min, x_max, n)

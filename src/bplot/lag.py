@@ -1,5 +1,5 @@
-from .check_data import check_data
-from .point import point
+from bplot.check_data import check_data
+from bplot.point import point
 
 all = ['lag']
 

@@ -1,5 +1,5 @@
 import numpy as np
-from .check_data import check_data
+from bplot.check_data import check_data
 
 all = ['box', 'box_h']
 
