@@ -2,6 +2,4 @@
 
 pip install .
 
-make clean-doc
-
-make -B doc
+cd doc && make clean && make html
