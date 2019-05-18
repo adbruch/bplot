@@ -8,6 +8,7 @@ from bplot.histogram import histogram
 from bplot.jitter import jitter
 from bplot.lag import lag
 from bplot.line import line
+from bplot.lv import lv
 from bplot.point import point
 from bplot.percentile import percentile, percentile_h
 from bplot.rug import rug
