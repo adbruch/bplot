@@ -107,6 +107,5 @@ venv.bak/
 # OS X
 .DS_Store
 
-# stanflow
-play.py
-notes.org
+# bplot development
+develop/

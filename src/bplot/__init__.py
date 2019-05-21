@@ -19,4 +19,4 @@ from bplot.mad import mad, mad_h
 from bplot.trace import trace
 from bplot.violin import violin, violin_h
 
-__version__ = '0.1'
+__version__ = '0.2'
