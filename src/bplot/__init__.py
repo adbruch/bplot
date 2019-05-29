@@ -20,4 +20,4 @@ from bplot.trace import trace
 from bplot.utilities import clear, current_axis, labels, LaTeX, legend, save, subplots, title
 from bplot.violin import violin, violin_h
 
-__version__ = '0.1'
+__version__ = '0.2'

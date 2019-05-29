@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='bplot',
-      version='0.1',
+      version='0.2',
       description='Functional plotting.',
       url='http://github.com/roualdes/bplot',
       author='Edward A. Roualdes',

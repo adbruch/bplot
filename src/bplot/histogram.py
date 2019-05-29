@@ -1,4 +1,5 @@
 from bplot.check_data import check_data
+from bplot.bayesian_blocks import bayesian_blocks
 
 all = ['histogram']
 
@@ -35,6 +36,9 @@ def histogram(x, color='tab:blue', label='', bins='auto',
     """
 
     x, _, ax = check_data(x, None, ax)
+
+    if bins == 'bayesian_blocks' or bins == 'bb':
+        bins = bayesian_blocks(x)
 
     n, bins, patches = ax.hist(
         x, color=color, label=label, density=True, histtype='step',
