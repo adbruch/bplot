@@ -1,6 +1,6 @@
 from bplot.autocorrelation import autocorrelation
 from bplot.box import box, box_h
-from bplot.colors import colors
+from bplot.colors import color, tab_color
 from bplot.curve import curve
 from bplot.density import density
 from bplot.grid import grid
@@ -17,6 +17,7 @@ from bplot.std import std, std_h
 from bplot.ste import ste, ste_h
 from bplot.mad import mad, mad_h
 from bplot.trace import trace
+from bplot.utilities import clear, current_axis, labels, LaTeX, legend, save, subplots, title
 from bplot.violin import violin, violin_h
 
 __version__ = '0.1'
