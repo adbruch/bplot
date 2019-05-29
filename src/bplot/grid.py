@@ -1,12 +1,13 @@
 from bplot.check_data import check_data
+import matplotlib.pyplot as plt
 
-all = ['grid']
 
-
-def grid(color='grey', linestyle='dashed', ax=None, **kwargs):
-    """Draw grid lines."""
+def grid(b=True, ax=None, **kws):
+    """Show grid lines."""
 
     _, _, ax = check_data(None, None, ax)
 
-    ax.grid(True, color=color, linestyle=linestyle, **kwargs)
+    if 'alpha' not in kws:
+        kws['alpha'] = 0.25
+    plt.grid(b=b, **kws)
     return ax
