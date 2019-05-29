@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-all = ['check_data']
+all = ["check_data"]
 
 
 def check_data(x=None, y=None, ax=None):
@@ -27,7 +27,6 @@ def check_data(x=None, y=None, ax=None):
             y = y.values
         if len(y.shape) > 1:
             y = y.reshape((y.shape[0],))
-
 
     if ax is None:
         ax = plt.gca()

@@ -1,8 +1,9 @@
 from bplot.check_data import check_data
 
-all = ['shade_x', 'shade_y']
+all = ["shade_x", "shade_y"]
 
-def shade_x(x, y1, y2, where=None, color='tab:blue', alpha=1, label='', ax=None, **kws):
+
+def shade_x(x, y1, y2, where=None, color="tab:blue", alpha=1, label="", ax=None, **kws):
     """Shade over x-axis.
 
 
@@ -44,11 +45,13 @@ def shade_x(x, y1, y2, where=None, color='tab:blue', alpha=1, label='', ax=None,
     x, _, ax = check_data(x, None, ax)
     # TODO (ear): validate y1 and y2
 
-    out = ax.fill_between(x, y1, y2, color=color, alpha=alpha, label=label, where=where, **kws)
+    out = ax.fill_between(
+        x, y1, y2, color=color, alpha=alpha, label=label, where=where, **kws
+    )
     return out
 
 
-def shade_y(y, x1, x2, where=None, color='tab:blue', alpha=1, label='', ax=None, **kws):
+def shade_y(y, x1, x2, where=None, color="tab:blue", alpha=1, label="", ax=None, **kws):
     """Shade over y-axis.
 
 
@@ -90,5 +93,7 @@ def shade_y(y, x1, x2, where=None, color='tab:blue', alpha=1, label='', ax=None,
     _, y, ax = check_data(None, y, ax)
     # TODO (ear): validate x1 and x2
 
-    out = ax.fill_betweenx(y, x1, x2, color=color, alpha=alpha, label=label, where=where, **kws)
+    out = ax.fill_betweenx(
+        y, x1, x2, color=color, alpha=alpha, label=label, where=where, **kws
+    )
     return out

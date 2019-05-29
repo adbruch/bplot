@@ -2,16 +2,18 @@ from bplot.check_data import check_data
 import numpy as np
 
 
-def violin(x,
-           y,
-           color='tab:blue',
-           label='',
-           bw_method=None,
-           n=101,
-           left_half=True,
-           right_half=True,
-           ax=None,
-           **kws):
+def violin(
+    x,
+    y,
+    color="tab:blue",
+    label="",
+    bw_method=None,
+    n=101,
+    left_half=True,
+    right_half=True,
+    ax=None,
+    **kws
+):
     """Draw vertical violin plot.
 
 
@@ -64,32 +66,35 @@ def violin(x,
         showmeans=False,
         showextrema=False,
         showmedians=False,
-        points=n)
+        points=n,
+    )
 
     if color:
-        parts['bodies'][0].set_facecolor(color)
+        parts["bodies"][0].set_facecolor(color)
 
     if not left_half:
-        vertices = parts['bodies'][0].get_paths()[0].vertices[:, 0]
-        parts['bodies'][0].get_paths()[0].vertices[:, 0] = np.clip(vertices, x, np.inf)
+        vertices = parts["bodies"][0].get_paths()[0].vertices[:, 0]
+        parts["bodies"][0].get_paths()[0].vertices[:, 0] = np.clip(vertices, x, np.inf)
 
     if not right_half:
-        vertices = parts['bodies'][0].get_paths()[0].vertices[:, 0]
-        parts['bodies'][0].get_paths()[0].vertices[:, 0] = np.clip(vertices, -np.inf, x)
+        vertices = parts["bodies"][0].get_paths()[0].vertices[:, 0]
+        parts["bodies"][0].get_paths()[0].vertices[:, 0] = np.clip(vertices, -np.inf, x)
 
     return ax
 
 
-def violin_h(x,
-             y,
-             color='tab:blue',
-             label='',
-             bw_method=None,
-             n=101,
-             top_half=True,
-             bottom_half=True,
-             ax=None,
-             **kws):
+def violin_h(
+    x,
+    y,
+    color="tab:blue",
+    label="",
+    bw_method=None,
+    n=101,
+    top_half=True,
+    bottom_half=True,
+    ax=None,
+    **kws
+):
     """Draw horizontal violin plot.
 
 
@@ -143,17 +148,18 @@ def violin_h(x,
         showmeans=False,
         showextrema=False,
         showmedians=False,
-        points=n)
+        points=n,
+    )
 
     if color:
-        parts['bodies'][0].set_facecolor(color)
+        parts["bodies"][0].set_facecolor(color)
 
     if not top_half:
-        vertices = parts['bodies'][0].get_paths()[0].vertices[:, 1]
-        parts['bodies'][0].get_paths()[0].vertices[:, 1] = np.clip(vertices, -np.inf, y)
+        vertices = parts["bodies"][0].get_paths()[0].vertices[:, 1]
+        parts["bodies"][0].get_paths()[0].vertices[:, 1] = np.clip(vertices, -np.inf, y)
 
     if not bottom_half:
-        vertices = parts['bodies'][0].get_paths()[0].vertices[:, 1]
-        parts['bodies'][0].get_paths()[0].vertices[:, 1] = np.clip(vertices, y, np.inf)
+        vertices = parts["bodies"][0].get_paths()[0].vertices[:, 1]
+        parts["bodies"][0].get_paths()[0].vertices[:, 1] = np.clip(vertices, y, np.inf)
 
     return ax

@@ -1,11 +1,19 @@
 from bplot.check_data import check_data
 from bplot.bayesian_blocks import bayesian_blocks
 
-all = ['histogram']
+all = ["histogram"]
 
 
-def histogram(x, color='tab:blue', label='', bins='auto',
-              size=None, alpha=None, ax=None, layer=None):
+def histogram(
+    x,
+    color="tab:blue",
+    label="",
+    bins="auto",
+    size=None,
+    alpha=None,
+    ax=None,
+    layer=None,
+):
     """Draw a histogrm.
 
     Parameters
@@ -37,9 +45,16 @@ def histogram(x, color='tab:blue', label='', bins='auto',
 
     x, _, ax = check_data(x, None, ax)
 
-    if bins == 'bayesian_blocks' or bins == 'bb':
+    if bins == "bayesian_blocks" or bins == "bb":
         bins = bayesian_blocks(x)
 
     n, bins, patches = ax.hist(
-        x, color=color, label=label, density=True, histtype='step',
-        alpha=alpha, bins=bins, zorder=layer)
+        x,
+        color=color,
+        label=label,
+        density=True,
+        histtype="step",
+        alpha=alpha,
+        bins=bins,
+        zorder=layer,
+    )

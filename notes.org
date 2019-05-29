@@ -1,3 +1,0 @@
-* finish documentation for utilities.py functions
-
-* finish documentation for grid.py

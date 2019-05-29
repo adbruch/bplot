@@ -1,10 +1,12 @@
 from bplot.check_data import check_data
 from bplot.point import point
 
-all = ['lag']
+all = ["lag"]
 
 
-def lag(x, lag=1, color='tab:blue', alpha=1, label='', shape='o', size=36, ax=None, **kws):
+def lag(
+    x, lag=1, color="tab:blue", alpha=1, label="", shape="o", size=36, ax=None, **kws
+):
     """Draw lag plot.
 
     Parameters
@@ -42,5 +44,15 @@ def lag(x, lag=1, color='tab:blue', alpha=1, label='', shape='o', size=36, ax=No
     y1 = x[:-lag]
     y2 = x[lag:]
 
-    out = point(y1, y2, color=color, alpha=alpha, label=label, shape=shape, size=size, ax=ax, **kws)
+    out = point(
+        y1,
+        y2,
+        color=color,
+        alpha=alpha,
+        label=label,
+        shape=shape,
+        size=size,
+        ax=ax,
+        **kws
+    )
     return out

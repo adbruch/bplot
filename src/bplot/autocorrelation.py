@@ -2,7 +2,7 @@ from bplot.check_data import check_data
 import numpy as np
 
 
-all = ['autocorrelation']
+all = ["autocorrelation"]
 
 
 def _autocorrelation(x):
@@ -10,12 +10,12 @@ def _autocorrelation(x):
     # https://github.com/stan-dev/math/blob/5f6e8ddd100f00ddf5163c7082ecda077b1e8770/stan/math/prim/mat/fun/autocorrelation.hpp
     centered_signal = x - np.mean(x)
     N = x.size
-    M = int(2**np.ceil(np.log2(N)) - N)
+    M = int(2 ** np.ceil(np.log2(N)) - N)
 
-    freqvec = np.abs(np.fft.fft(centered_signal, N+M))**2
+    freqvec = np.abs(np.fft.fft(centered_signal, N + M)) ** 2
     ac = np.fft.ifft(freqvec)[:N]
 
-    return np.real(ac/ac[0])
+    return np.real(ac / ac[0])
 
 
 def _autocovariance(x):
@@ -26,7 +26,7 @@ def _autocovariance(x):
     return ac * np.var(x) * (N - 1) / N
 
 
-def autocorrelation(x, color='tab:blue', alpha=1, label='', ax=None, **kws):
+def autocorrelation(x, color="tab:blue", alpha=1, label="", ax=None, **kws):
     """Draw lag plot.
 
     Parameters
@@ -61,8 +61,12 @@ def autocorrelation(x, color='tab:blue', alpha=1, label='', ax=None, **kws):
     for i, ac in np.ndenumerate(acor):
         # TODO(ear) add v/hline
         if ac >= 0:
-            ax.vlines(i[0]+1, ymin=0, ymax=ac, color=color, alpha=alpha, label=label, **kws)
+            ax.vlines(
+                i[0] + 1, ymin=0, ymax=ac, color=color, alpha=alpha, label=label, **kws
+            )
         else:
-            ax.vlines(i[0]+1, ymin=ac, ymax=0, color=color, alpha=alpha, label=label, **kws)
+            ax.vlines(
+                i[0] + 1, ymin=ac, ymax=0, color=color, alpha=alpha, label=label, **kws
+            )
 
     return ax

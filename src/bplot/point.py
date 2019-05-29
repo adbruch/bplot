@@ -1,8 +1,9 @@
 from bplot.check_data import check_data
 
 
-def point(x, y, color='tab:blue', alpha=1, label='', shape='o', size=36, ax=None,
-          **kws):
+def point(
+    x, y, color="tab:blue", alpha=1, label="", shape="o", size=36, ax=None, **kws
+):
     """Draw scatter plot.
 
 

@@ -2,7 +2,7 @@ from bplot.check_data import check_data
 import matplotlib.pyplot as plt
 
 
-def rug(x, y=0, color='tab:blue', label='', ax=None, **kws):
+def rug(x, y=0, color="tab:blue", label="", ax=None, **kws):
     """Draw rug.
 
 
@@ -33,5 +33,5 @@ def rug(x, y=0, color='tab:blue', label='', ax=None, **kws):
 
     x, _, ax = check_data(x, None, ax)
 
-    out = ax.plot(x, [y] * len(x), marker='|', linestyle='', c=color, **kws)
+    out = ax.plot(x, [y] * len(x), marker="|", linestyle="", c=color, **kws)
     return out

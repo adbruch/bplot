@@ -3,7 +3,7 @@
 # https://github.com/mwaskom/seaborn/blob/master/seaborn/categorical.py
 # under BSD-3 license
 
-all = ['lv']
+all = ["lv"]
 
 from bplot.check_data import check_data
 
@@ -15,8 +15,17 @@ import numpy as np
 from scipy import stats
 
 
-def lv(x, y, color='tab:blue', label='', widths=0.8, p=0.007,
-                 scale='linear', k_depth='proportion', ax=None):
+def lv(
+    x,
+    y,
+    color="tab:blue",
+    label="",
+    widths=0.8,
+    p=0.007,
+    scale="linear",
+    k_depth="proportion",
+    ax=None,
+):
     """Draw vertical letter value plot.
 
     Parameters
@@ -59,30 +68,32 @@ def lv(x, y, color='tab:blue', label='', widths=0.8, p=0.007,
         ax = plt.gca()
 
     n = y.size
-    k_dict = {'proportion': (np.log2(n)) - int(np.log2(n*p)) + 1,
-              'tukey': (np.log2(n)) - 3,
-              'trustworthy': (np.log2(n) -
-                              np.log2(2*stats.norm.ppf((1-p))**2)) + 1}
+    k_dict = {
+        "proportion": (np.log2(n)) - int(np.log2(n * p)) + 1,
+        "tukey": (np.log2(n)) - 3,
+        "trustworthy": (np.log2(n) - np.log2(2 * stats.norm.ppf((1 - p)) ** 2)) + 1,
+    }
     k = k_dict[k_depth]
     try:
         k = int(k)
     except ValueError:
         k = 1
     # If the number happens to be less than 0, set k to 0
-    if k < 1.:
+    if k < 1.0:
         k = 1
 
-    upper = [100*(1 - 0.5**(i+2)) for i in range(k, -1, -1)]
-    lower = [100*(0.5**(i+2)) for i in range(k, -1, -1)]
+    upper = [100 * (1 - 0.5 ** (i + 2)) for i in range(k, -1, -1)]
+    lower = [100 * (0.5 ** (i + 2)) for i in range(k, -1, -1)]
     # Stitch the box ends together
     percentile_ends = [(i, j) for i, j in zip(lower, upper)]
     box_ends = [np.percentile(y, q) for q in percentile_ends]
 
     # Dictionary of functions for computing the width of the boxes
-    width_functions = {'linear': lambda h, i, k: (i - 1.) / k,
-                       'exponential': lambda h, i, k: 2**(-k+i-1),
-                       'area': lambda h, i, k: (1 - 2**(-k+i-2)) / h}
-
+    width_functions = {
+        "linear": lambda h, i, k: (i - 1.0) / k,
+        "exponential": lambda h, i, k: 2 ** (-k + i - 1),
+        "area": lambda h, i, k: (1 - 2 ** (-k + i - 2)) / h,
+    }
 
     # Anonymous functions for calculating the width and height
     # of the letter value boxes
@@ -94,16 +105,19 @@ def lv(x, y, color='tab:blue', label='', widths=0.8, p=0.007,
 
     # Functions to construct the letter value boxes
     def vert_perc_box(x, b, i, k, w):
-        rect = Patches.FancyBboxPatch((x - widths*w / 2, b[0]),
-                                      widths*w,
-                                      height(b), fill=True,
-                                      boxstyle="round,pad=0.05")
+        rect = Patches.FancyBboxPatch(
+            (x - widths * w / 2, b[0]),
+            widths * w,
+            height(b),
+            fill=True,
+            boxstyle="round,pad=0.05",
+        )
         return rect
 
     def horz_perc_box(x, b, i, k, w):
-        rect = Patches.Rectangle((b[0], x - widths*w / 2),
-                                 height(b), widths*w,
-                                 fill=True)
+        rect = Patches.Rectangle(
+            (b[0], x - widths * w / 2), height(b), widths * w, fill=True
+        )
         return rect
 
     # Scale the width of the boxes so the biggest starts at 1
@@ -114,25 +128,27 @@ def lv(x, y, color='tab:blue', label='', widths=0.8, p=0.007,
     median_y = np.median(y)
 
     # Calculate the outliers and plot
-    perc_ends = (100*(0.5**(k+2)), 100*(1 - 0.5**(k+2)))
+    perc_ends = (100 * (0.5 ** (k + 2)), 100 * (1 - 0.5 ** (k + 2)))
     edges = np.percentile(y, perc_ends)
     lower_out = y[np.where(y < edges[0])[0]]
     upper_out = y[np.where(y > edges[1])[0]]
     outliers = np.concatenate((lower_out, upper_out))
 
-    boxes = [vert_perc_box(x, b[0], i, k, b[1]) for i, b in enumerate(zip(box_ends, w_area))]
+    boxes = [
+        vert_perc_box(x, b[0], i, k, b[1]) for i, b in enumerate(zip(box_ends, w_area))
+    ]
 
     # Plot the medians
     half_width = boxes[k].get_extents().width / 2
-    ax.plot([x - half_width, x + half_width], [median_y, median_y], c='.15', alpha=.45)
+    ax.plot([x - half_width, x + half_width], [median_y, median_y], c=".15", alpha=0.45)
 
     # Plot the outliers
     color = mpl.colors.to_hex(color)
-    ax.scatter(np.repeat(x, len(outliers)), outliers, marker='*', c=color)
+    ax.scatter(np.repeat(x, len(outliers)), outliers, marker="*", c=color)
 
     rgb = [[1, 1, 1], mpl.colors.to_rgb(color)]
-    cmap = mpl.colors.LinearSegmentedColormap.from_list('new_map', rgb)
-    collection = PatchCollection(boxes[1:], cmap=cmap, edgecolors=([0,0,0,0.45],))
+    cmap = mpl.colors.LinearSegmentedColormap.from_list("new_map", rgb)
+    collection = PatchCollection(boxes[1:], cmap=cmap, edgecolors=([0, 0, 0, 0.45],))
     collection.set_array(np.array(np.linspace(0, 1, len(boxes))))
     ax.add_collection(collection)
 

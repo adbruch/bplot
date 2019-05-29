@@ -2,16 +2,10 @@ from bplot.check_data import check_data
 import numpy as np
 from scipy import stats
 
-all = ['density']
+all = ["density"]
 
 
-def density(x,
-            color='tab:blue',
-            label='',
-            bw_method=None,
-            n=101,
-            ax=None,
-            **kws):
+def density(x, color="tab:blue", label="", bw_method=None, n=101, ax=None, **kws):
     """Draw density plot.
 
     Parameters

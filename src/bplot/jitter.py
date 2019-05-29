@@ -2,19 +2,21 @@ from bplot.check_data import check_data
 import matplotlib.pyplot as plt
 import numpy as np
 
-all = ['jitter']
+all = ["jitter"]
 
 
-def jitter(x,
-           y,
-           jitter_x=0.4,
-           jitter_y=0.4,
-           color='tab:blue',
-           label='',
-           shape='o',
-           size=36,
-           ax=None,
-           **kws):
+def jitter(
+    x,
+    y,
+    jitter_x=0.4,
+    jitter_y=0.4,
+    color="tab:blue",
+    label="",
+    shape="o",
+    size=36,
+    ax=None,
+    **kws
+):
     """Draw jittered points.
 
 
@@ -61,12 +63,11 @@ def jitter(x,
     resolution_x = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
     resolution_y = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
 
-    r_x = resolution_x/2
-    r_y = resolution_y/2
+    r_x = resolution_x / 2
+    r_y = resolution_y / 2
 
     jx = jitter_x * np.random.uniform(low=-r_x, high=r_x, size=x.shape[0])
     jy = jitter_y * np.random.uniform(low=-r_y, high=r_y, size=y.shape[0])
 
-    out = ax.scatter(x + jx, y + jy,
-                     c=color, label=label, marker=shape, s=size)
+    out = ax.scatter(x + jx, y + jy, c=color, label=label, marker=shape, s=size)
     return out

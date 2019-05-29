@@ -2,7 +2,7 @@ from bplot.check_data import check_data
 import numpy as np
 
 
-def trace(x, color='tab:blue', label='', ax=None, **kws):
+def trace(x, color="tab:blue", label="", ax=None, **kws):
     """Draw trace plot.
 
 

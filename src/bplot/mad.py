@@ -2,18 +2,12 @@ from bplot.check_data import check_data
 import numpy as np
 from scipy.stats import norm
 
+
 def mad_std(x):
     return np.median(np.abs(x - np.median(x)))
 
 
-def mad(x,
-        y,
-        z=1.96,
-        z_inner=0.675,
-        color='tab:blue',
-        label='',
-        shape='o',
-        ax=None):
+def mad(x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", shape="o", ax=None):
     """Draw vertical median absolute deviation intervals.
 
 
@@ -53,7 +47,7 @@ def mad(x,
 
     _, y, ax = check_data(None, y, ax)
 
-    med, mad = np.median(y), mad_std(y) / norm.ppf(.75)
+    med, mad = np.median(y), mad_std(y) / norm.ppf(0.75)
 
     lw_mid, uw_mid = med - z_inner * mad, med + z_inner * mad
     lw, uw = med - z * mad, med + z * mad
@@ -61,19 +55,11 @@ def mad(x,
     ax.vlines(x, lw, uw, color=color)
     ax.vlines(x, lw_mid, uw_mid, lw=4, color=color)
 
-    out = ax.plot(
-        x, med, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(x, med, markersize=10, marker=shape, color=color, label=label)
     return out
 
 
-def mad_h(x,
-          y,
-          z=1.96,
-          z_inner=0.675,
-          color='tab:blue',
-          label='',
-          shape='o',
-          ax=None):
+def mad_h(x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", shape="o", ax=None):
     """Draw horizontal median absolute deviation intervals.
 
 
@@ -110,7 +96,7 @@ def mad_h(x,
 
     x, _, ax = check_data(x, None, ax)
 
-    med, mad = np.median(x), mad_std(x) / norm.ppf(.75)
+    med, mad = np.median(x), mad_std(x) / norm.ppf(0.75)
 
     lw_mid, uw_mid = med - z_inner * mad, med + z_inner * mad
     lw, uw = med - z * mad, med + z * mad
@@ -118,6 +104,5 @@ def mad_h(x,
     ax.hlines(y, lw, uw, color=color)
     ax.hlines(y, lw_mid, uw_mid, lw=4, color=color)
 
-    out = ax.plot(
-        med, y, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(med, y, markersize=10, marker=shape, color=color, label=label)
     return out

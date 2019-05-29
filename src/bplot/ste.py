@@ -2,14 +2,7 @@ from bplot.check_data import check_data
 import numpy as np
 
 
-def ste(x,
-        y,
-        z=1.96,
-        z_inner=0.675,
-        color='tab:blue',
-        label='',
-        shape='o',
-        ax=None):
+def ste(x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", shape="o", ax=None):
     """Draw vertical standard error intervals.
 
 
@@ -57,19 +50,11 @@ def ste(x,
     ax.vlines(x, lw, uw, color=color)
     ax.vlines(x, lw_mid, uw_mid, lw=4, color=color)
 
-    out = ax.plot(
-        x, ybar, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(x, ybar, markersize=10, marker=shape, color=color, label=label)
     return out
 
 
-def ste_h(x,
-          y,
-          z=1.96,
-          z_mid=0.675,
-          color='tab:blue',
-          label='',
-          shape='o',
-          ax=None):
+def ste_h(x, y, z=1.96, z_mid=0.675, color="tab:blue", label="", shape="o", ax=None):
     """Draw horizontal standard error intervals.
 
 
@@ -117,6 +102,5 @@ def ste_h(x,
     ax.hlines(y, lw, uw, color=color)
     ax.hlines(y, lw_mid, uw_mid, lw=4, color=color)
 
-    out = ax.plot(
-        xbar, y, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(xbar, y, markersize=10, marker=shape, color=color, label=label)
     return out

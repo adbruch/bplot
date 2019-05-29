@@ -1,7 +1,7 @@
 import numpy as np
 from bplot.check_data import check_data
 
-all = ['box', 'box_h']
+all = ["box", "box_h"]
 
 
 def _bx(x):
@@ -21,7 +21,7 @@ def _bx(x):
     return q1, q2, q3, lw, uw
 
 
-def box(x, y, color='tab:blue', label='', shape='o', ax=None, **kws):
+def box(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
     """Draw vertical box plot.
 
     Parameters
@@ -66,7 +66,7 @@ def box(x, y, color='tab:blue', label='', shape='o', ax=None, **kws):
     return out
 
 
-def box_h(x, y, color='tab:blue', label='', shape='o', ax=None, **kws):
+def box_h(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
     """Draw horizontal box plot.
 
 

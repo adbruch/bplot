@@ -1,8 +1,9 @@
 from bplot.check_data import check_data
 
-all = ['curve']
+all = ["curve"]
 
-def curve(x, y, color='tab:blue', alpha=1, label='', ax=None, **kws):
+
+def curve(x, y, color="tab:blue", alpha=1, label="", ax=None, **kws):
     """Draw curve.
 
 
@@ -37,5 +38,5 @@ def curve(x, y, color='tab:blue', alpha=1, label='', ax=None, **kws):
 
     x, y, ax = check_data(x, y, ax)
 
-    out = ax.plot(x, y, '-', color=color, alpha=alpha, label=label, **kws)
+    out = ax.plot(x, y, "-", color=color, alpha=alpha, label=label, **kws)
     return out
