@@ -17,34 +17,35 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="trace" href="trace.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -166,68 +167,60 @@
 <dt id="bplot.violin">
 <code class="descclassname">bplot.</code><code class="descname">violin</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>bw_method=None</em>, <em>n=101</em>, <em>left_half=True</em>, <em>right_half=True</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/violin.html#violin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.violin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw vertical violin plot.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the x-axis at which the vertical violin is placed.</li>
-<li><strong>y</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the violin plot is sought.</li>
-<li><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the line of the violin plot.</li>
-<li><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</li>
-<li><strong>bw_method</strong> (<em>string</em><em>, </em><em>None by default</em>) – The bandwidth estimator method.  If None, ‘scott’ is used.</li>
-<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>101 by default</em>) – The number of interpolation points.</li>
-<li><strong>left_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the left half of the violin plot.  Draw
-only the right half by setting this to False.</li>
-<li><strong>right_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the right half of the violin plot.  Draw
-only the left half by setting this to False.</li>
-<li><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
-matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the x-axis at which the vertical violin is placed.</p></li>
+<li><p><strong>y</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the violin plot is sought.</p></li>
+<li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the line of the violin plot.</p></li>
+<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
+<li><p><strong>bw_method</strong> (<em>string</em><em>, </em><em>None by default</em>) – The bandwidth estimator method.  If None, ‘scott’ is used.</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>101 by default</em>) – The number of interpolation points.</p></li>
+<li><p><strong>left_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the left half of the violin plot.  Draw
+only the right half by setting this to False.</p></li>
+<li><p><strong>right_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the right half of the violin plot.  Draw
+only the left half by setting this to False.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ax</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matplotlib.pyplot.Axes</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="bplot.violin_h">
 <code class="descclassname">bplot.</code><code class="descname">violin_h</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>bw_method=None</em>, <em>n=101</em>, <em>top_half=True</em>, <em>bottom_half=True</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/violin.html#violin_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.violin_h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw horizontal violin plot.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the violin plot is sought.</li>
-<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the y-axis at which the horizontal violin is placed.</li>
-<li><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the line of the violin plot.</li>
-<li><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</li>
-<li><strong>bw_method</strong> (<em>string</em><em>, </em><em>None by default</em>) – The bandwidth estimator method.  If None, ‘scott’ is used.</li>
-<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>101 by default</em>) – The number of interpolation points.</li>
-<li><strong>top_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the top half of the violin plot.  Draw
-only the bottom half by setting this to False.</li>
-<li><strong>bottom_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the top half of the violin plot.  Draw
-only the bottom half by setting this to False.</li>
-<li><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
-matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the violin plot is sought.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the y-axis at which the horizontal violin is placed.</p></li>
+<li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the line of the violin plot.</p></li>
+<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
+<li><p><strong>bw_method</strong> (<em>string</em><em>, </em><em>None by default</em>) – The bandwidth estimator method.  If None, ‘scott’ is used.</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>101 by default</em>) – The number of interpolation points.</p></li>
+<li><p><strong>top_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the top half of the violin plot.  Draw
+only the bottom half by setting this to False.</p></li>
+<li><p><strong>bottom_half</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a><em>, </em><em>True by default</em>) – Whether or not to draw the top half of the violin plot.  Draw
+only the bottom half by setting this to False.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ax</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matplotlib.pyplot.Axes</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -241,7 +234,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="trace.html" class="btn btn-neutral" title="trace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trace.html" class="btn btn-neutral float-left" title="trace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -250,7 +243,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Edward A. Roualdes.
+        &copy; Copyright 2018, Edward A. Roualdes
 
     </p>
   </div>
@@ -267,38 +260,16 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

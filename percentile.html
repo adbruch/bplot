@@ -17,35 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="point" href="point.html" />
     <link rel="prev" title="line" href="line.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -167,62 +168,54 @@
 <dt id="bplot.percentile">
 <code class="descclassname">bplot.</code><code class="descname">percentile</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>outer=0.8</em>, <em>inner=0.5</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw vertical percentile interval.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the x-axis at which the interval is placed.</li>
-<li><strong>y</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the <cite>outer</cite> percentile interval is sought.</li>
-<li><strong>outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.8 by default</em>) – The outer interval percentage.</li>
-<li><strong>inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.5 by default</em>) – The inner interval percentage.</li>
-<li><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</li>
-<li><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</li>
-<li><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</li>
-<li><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
-matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the x-axis at which the interval is placed.</p></li>
+<li><p><strong>y</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the <cite>outer</cite> percentile interval is sought.</p></li>
+<li><p><strong>outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.8 by default</em>) – The outer interval percentage.</p></li>
+<li><p><strong>inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.5 by default</em>) – The inner interval percentage.</p></li>
+<li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</p></li>
+<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
+<li><p><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>out</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matplotlib.pyplot.Axes</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="bplot.percentile_h">
 <code class="descclassname">bplot.</code><code class="descname">percentile_h</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>outer=0.8</em>, <em>inner=0.5</em>, <em>color='tab:blue'</em>, <em>label=''</em>, <em>shape='o'</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile_h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw horizontal percentile interval.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the <cite>outer</cite> percentile interval is sought.</li>
-<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the y-axis at which the interval is placed.</li>
-<li><strong>outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.8 by default</em>) – The outer interval percentage.</li>
-<li><strong>inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.5 by default</em>) – The inner interval percentage.</li>
-<li><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</li>
-<li><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</li>
-<li><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</li>
-<li><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
-matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of data for which the <cite>outer</cite> percentile interval is sought.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The location along the y-axis at which the interval is placed.</p></li>
+<li><p><strong>outer</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.8 by default</em>) – The outer interval percentage.</p></li>
+<li><p><strong>inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.5 by default</em>) – The inner interval percentage.</p></li>
+<li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</p></li>
+<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
+<li><p><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
+matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>out</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">matplotlib.pyplot.Axes</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -238,7 +231,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
         <a href="point.html" class="btn btn-neutral float-right" title="point" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="line.html" class="btn btn-neutral" title="line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="line.html" class="btn btn-neutral float-left" title="line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -247,7 +240,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Edward A. Roualdes.
+        &copy; Copyright 2018, Edward A. Roualdes
 
     </p>
   </div>
@@ -264,38 +257,16 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>utilities &mdash; bplot 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> bplot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="box.html">box</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curve.html">curve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="density.html">density</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jitter.html">jitter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="line.html">line</a></li>
+<li class="toctree-l1"><a class="reference internal" href="percentile.html">percentile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="point.html">point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rug.html">rug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mad.html">median absolute deviation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="std.html">standard deviation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ste.html">standard error</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trace.html">trace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="violin.html">violin</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bplot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>utilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/utilities.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="utilities">
+<h1>utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bplot.current_axis">
+<code class="descclassname">bplot.</code><code class="descname">current_axis</code><span class="sig-paren">(</span><em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#current_axis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.current_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set current axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ax</strong> (<cite>matplotlib.pyplot.Axes</cite>) – The <cite>Axes</cite> onto which the box</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> onto which the plot will be drawn.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.labels">
+<code class="descclassname">bplot.</code><code class="descname">labels</code><span class="sig-paren">(</span><em>x=''</em>, <em>y=''</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#labels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set axis labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>string</em>) – The label to be set on x axis.</p></li>
+<li><p><strong>y</strong> (<em>string</em>) – The label to be set on the y axis.</p></li>
+<li><p><strong>kws</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – Arbitrary keyword arguments passed on to
+<cite>matplotlib.pyplot.xlabel()</cite> and <cite>matplotlib.pyplot.ylabel()</cite>.</p></li>
+<li><p><strong>ax</strong> (<cite>matplotlib.pyplot.Axes</cite>, <cite>None</cite> by default) – The axis onto which the labels are set.  If left as <cite>None</cite>,
+<cite>matplotlib.pyplot.gca()</cite> is called to get the current <cite>Axes</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> onto which the axis labels are set.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>matplotlib.pyplot.Axes</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.LaTeX">
+<code class="descclassname">bplot.</code><code class="descname">LaTeX</code><span class="sig-paren">(</span><em>usetex=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#LaTeX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.LaTeX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use LaTeX.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>usetex</strong> (<em>boolean</em>) – Whether or not to use LaTeX in plots, defaults to <cite>True</cite>.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>None</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.legend">
+<code class="descclassname">bplot.</code><code class="descname">legend</code><span class="sig-paren">(</span><em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#legend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.legend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make legend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<cite>matplotlib.pyplot.Axes</cite>, <cite>None</cite> by default) – The axis onto which a legend is set. If left as <cite>None</cite>,
+<cite>matplotlib.pyplot.gca()</cite> is called to get the current <cite>Axes</cite>.</p></li>
+<li><p><strong>kws</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – Arbitrary keyword arguments passed to <cite>matplotlib.pyplot.legend()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> onto which the legend was drawn.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.save">
+<code class="descclassname">bplot.</code><code class="descname">save</code><span class="sig-paren">(</span><em>filename</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>string</em>) – The filepath into which the current figure will be saved.</p></li>
+<li><p><strong>ax</strong> (<cite>matplotlib.pyplot.Axes</cite>, <cite>None</cite> by default) – The axis from which the plot to be saved derives. If left as <cite>None</cite>,
+<cite>matplotlib.pyplot.gca()</cite> is called to get the current <cite>Axes</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> for which the plot was saved.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.subplots">
+<code class="descclassname">bplot.</code><code class="descname">subplots</code><span class="sig-paren">(</span><em>nrows=1</em>, <em>ncols=1</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#subplots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.subplots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get axes for multiple subplots.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nrows</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The desired number of rows in the multi-plot figure.</p></li>
+<li><p><strong>ncols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The desired number of columns in the multi-plot figure.</p></li>
+<li><p><strong>kws</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – Arbitrary keyword arguments passed on to
+<cite>matplotlib.pyplot.subplots()</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> onto which the plots will be drawn.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>matplotlib.pyplot.Axes</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="bplot.title">
+<code class="descclassname">bplot.</code><code class="descname">title</code><span class="sig-paren">(</span><em>title=''</em>, <em>ax=None</em>, <em>**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set title, defaults to left justified, <cite>loc=’left’</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>string</em>) – The label to be set on as the title.</p></li>
+<li><p><strong>kws</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – Arbitrary keyword arguments passed on to
+<cite>matplotlib.pyplot.title()</cite>.</p></li>
+<li><p><strong>ax</strong> (<cite>matplotlib.pyplot.Axes</cite>, <cite>None</cite> by default) – The axis onto which the labels are set.  If left as <cite>None</cite>,
+<cite>matplotlib.pyplot.gca()</cite> is called to get the current <cite>Axes</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ax</strong> – The <cite>Axes</cite> onto which the title is set.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Edward A. Roualdes
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
