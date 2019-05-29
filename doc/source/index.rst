@@ -14,6 +14,7 @@ Available plotting tools:
    box
    curve
    density
+   grid
    histogram
    jitter
    line
@@ -24,6 +25,7 @@ Available plotting tools:
    std
    ste
    trace
+   utilities
    violin
 
 
