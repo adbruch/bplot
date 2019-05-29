@@ -1,5 +1,5 @@
-yapf:
-	yapf -r -i bplot/
+black:
+	black bplot/
 
 install:
 	python setup.py sdist
