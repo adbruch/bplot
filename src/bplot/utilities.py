@@ -133,7 +133,7 @@ def legend(ax=None, **kws):
     return ax
 
 
-def xticks(ticks=[], ax=None, **kws):
+def xticks(ticks=[], labels=None, ax=None, **kws):
     """Set x axis ticks.
 
     Parameters
@@ -142,6 +142,10 @@ def xticks(ticks=[], ax=None, **kws):
         A list of positions at which ticks should be placed along the x axis,
         defaults to empty list.
 
+    labels : array_like
+        A list of explicit labels to place at the given ticks, defaults to
+        `None`.
+
     ax : `matplotlib.pyplot.Axes`, `None` by default
         The axis onto which the x axis ticks are set. If left as `None`,
         `matplotlib.pyplot.gca()` is called to get the current `Axes`.
@@ -149,14 +153,15 @@ def xticks(ticks=[], ax=None, **kws):
     kws : dict
         Arbitrary keyword arguments passed on to
         `matplotlib.pyplot.xticks()`.
+
     """
 
     _, _, ax = check_data(None, None, ax)
-    plt.xticks(ticks=ticks, **kws)
+    plt.xticks(ticks=ticks, labels=labels, **kws)
     return ax
 
 
-def yticks(ticks=[], ax=None, **kws):
+def yticks(ticks=[], labels=None, ax=None, **kws):
     """Set y axis ticks.
 
     Parameters
@@ -164,6 +169,10 @@ def yticks(ticks=[], ax=None, **kws):
     ticks : array_like
         A list of positions at which ticks should be placed along the y axis,
         defaults to empty list.
+
+    labels : array_like
+        A list of explicit labels to place at the given ticks, defaults to
+        `None`.
 
     ax : `matplotlib.pyplot.Axes`, `None` by default
         The axis onto which the y axis ticks are set. If left as `None`,
@@ -175,7 +184,7 @@ def yticks(ticks=[], ax=None, **kws):
     """
 
     _, _, ax = check_data(None, None, ax)
-    plt.yticks(ticks=ticks, **kws)
+    plt.yticks(ticks=ticks, labels=labels, **kws)
     return ax
 
 
