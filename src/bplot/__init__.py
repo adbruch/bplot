@@ -20,12 +20,16 @@ from bplot.trace import trace
 from bplot.utilities import (
     clear,
     current_axis,
+    hide_xaxis,
+    hide_yaxis,
     labels,
     LaTeX,
     legend,
     save,
     subplots,
     title,
+    xticks,
+    yticks,
 )
 from bplot.violin import violin, violin_h
 

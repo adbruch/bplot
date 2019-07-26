@@ -3,6 +3,77 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 
+def clear(ax=None):
+    """Clear axes.
+
+    Parameters
+    ----------
+    ax : `matplotlib.pyplot.Axes`, `None` by default
+        The axis to be cleared. If left as `None`,
+        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
+
+    Returns
+    -------
+    ax : matplotlib.pyplot.Axes
+         The `Axes` that was cleared.
+    """
+
+    _, _, ax = check_data(None, None, ax)
+    plt.cla()
+
+    return ax
+
+
+def hide_xaxis(x=True, ax=None):
+    """Hide x axis ticks and tick-labels.
+
+    Parameters
+    ----------
+    x : boolean
+        Whether or not to hide the x axis ticks and tick-labels, defaults to True.
+
+    ax : `matplotlib.pyplot.Axes`, `None` by default
+        The axis onto which the x axis is hidden.  If left as `None`,
+        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
+
+
+    Returns
+    -------
+
+    ax : matplotlib.pyplot.Axes
+         The `Axes` onto which the x axis was hiden.
+    """
+
+    _, _, ax = check_data(None, None, ax)
+    ax.get_xaxis().set_visible(not x)
+    return ax
+
+
+def hide_yaxis(y=True, ax=None):
+    """Hide y axis ticks and tick-labels.
+
+    Parameters
+    ----------
+    y : boolean
+        Whether or not to hide the y axis ticks and tick-labels, defaults to True.
+
+    ax : `matplotlib.pyplot.Axes`, `None` by default
+        The axis onto which the x axis is hidden.  If left as `None`,
+        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
+
+
+    Returns
+    -------
+
+    ax : matplotlib.pyplot.Axes
+         The `Axes` onto which the x axis was hiden.
+    """
+
+    _, _, ax = check_data(None, None, ax)
+    ax.get_yaxis().set_visible(not y)
+    return ax
+
+
 def labels(x="", y="", ax=None, **kws):
     """Set axis labels.
 
@@ -35,6 +106,76 @@ def labels(x="", y="", ax=None, **kws):
         plt.xlabel(x, **kws)
     if y is not None:
         plt.ylabel(y, **kws)
+    return ax
+
+
+def legend(ax=None, **kws):
+    """Make legend.
+
+    Parameters
+    ----------
+    ax : `matplotlib.pyplot.Axes`, `None` by default
+        The axis onto which a legend is set. If left as `None`,
+        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
+
+    kws : dict
+        Arbitrary keyword arguments passed to `matplotlib.pyplot.legend()`.
+
+    Returns
+    -------
+    ax : matplotlib.pyplot.Axes
+         The `Axes` onto which the legend was drawn.
+    """
+
+    _, _, ax = check_data(None, None, ax)
+    ax.legend().remove()
+    plt.legend(**kws)
+    return ax
+
+
+def xticks(ticks=[], ax=None, **kws):
+    """Set x axis ticks.
+
+    Parameters
+    ----------
+    ticks : array_like
+        A list of positions at which ticks should be placed along the x axis,
+        defaults to empty list.
+
+    ax : `matplotlib.pyplot.Axes`, `None` by default
+        The axis onto which the x axis ticks are set. If left as `None`,
+        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
+
+    kws : dict
+        Arbitrary keyword arguments passed on to
+        `matplotlib.pyplot.xticks()`.
+    """
+
+    _, _, ax = check_data(None, None, ax)
+    plt.xticks(ticks=ticks, **kws)
+    return ax
+
+
+def yticks(ticks=[], ax=None, **kws):
+    """Set y axis ticks.
+
+    Parameters
+    ----------
+    ticks : array_like
+        A list of positions at which ticks should be placed along the y axis,
+        defaults to empty list.
+
+    ax : `matplotlib.pyplot.Axes`, `None` by default
+        The axis onto which the y axis ticks are set. If left as `None`,
+        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
+
+    kws : dict
+        Arbitrary keyword arguments passed on to
+        `matplotlib.pyplot.yticks()`.
+    """
+
+    _, _, ax = check_data(None, None, ax)
+    plt.yticks(ticks=ticks, **kws)
     return ax
 
 
@@ -114,6 +255,7 @@ def current_axis(ax=None):
          The `Axes` onto which the plot will be drawn.
     """
 
+    _, _, ax = check_data(None, None, ax)
     plt.sca(ax)
     return ax
 
@@ -158,48 +300,4 @@ def save(filename, ax=None):
     _, _, ax = check_data(None, None, ax)
     plt.tight_layout()
     plt.savefig(filename)
-    return ax
-
-
-def clear(ax=None):
-    """Clear axes.
-
-    Parameters
-    ----------
-    ax : `matplotlib.pyplot.Axes`, `None` by default
-        The axis to be cleared. If left as `None`,
-        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
-
-    Returns
-    -------
-    ax : matplotlib.pyplot.Axes
-         The `Axes` that was cleared.
-    """
-
-    _, _, ax = check_data(None, None, ax)
-    plt.cla()
-
-    return ax
-
-
-def legend(ax=None, **kws):
-    """Make legend.
-
-    Parameters
-    ----------
-    ax : `matplotlib.pyplot.Axes`, `None` by default
-        The axis onto which a legend is set. If left as `None`,
-        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
-
-    kws : dict
-        Arbitrary keyword arguments passed to `matplotlib.pyplot.legend()`.
-
-    Returns
-    -------
-    ax : matplotlib.pyplot.Axes
-         The `Axes` onto which the legend was drawn.
-    """
-
-    _, _, ax = check_data(None, None, ax)
-    plt.legend(**kws)
     return ax

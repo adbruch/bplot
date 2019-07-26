@@ -1,4 +1,5 @@
 from bplot.check_data import check_data
+import matplotlib as mpl
 import numpy as np
 
 
@@ -70,7 +71,9 @@ def violin(
     )
 
     if color:
-        parts["bodies"][0].set_facecolor(color)
+        for pc in parts["bodies"]:
+            pc.set_facecolor(mpl.colors.to_rgb(color))
+            pc.set_alpha(1)
 
     if not left_half:
         vertices = parts["bodies"][0].get_paths()[0].vertices[:, 0]
