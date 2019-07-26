@@ -355,13 +355,15 @@
 
 <dl class="function">
 <dt id="bplot.xticks">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">xticks</code><span class="sig-paren">(</span><em class="sig-param">ticks=[]</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#xticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.xticks" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">xticks</code><span class="sig-paren">(</span><em class="sig-param">ticks=[]</em>, <em class="sig-param">labels=None</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#xticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.xticks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set x axis ticks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ticks</strong> (<em>array_like</em>) – A list of positions at which ticks should be placed along the x axis,
 defaults to empty list.</p></li>
+<li><p><strong>labels</strong> (<em>array_like</em>) – A list of explicit labels to place at the given ticks, defaults to
+<cite>None</cite>.</p></li>
 <li><p><strong>ax</strong> (<cite>matplotlib.pyplot.Axes</cite>, <cite>None</cite> by default) – The axis onto which the x axis ticks are set. If left as <cite>None</cite>,
 <cite>matplotlib.pyplot.gca()</cite> is called to get the current <cite>Axes</cite>.</p></li>
 <li><p><strong>kws</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – Arbitrary keyword arguments passed on to
@@ -373,13 +375,15 @@ defaults to empty list.</p></li>
 
 <dl class="function">
 <dt id="bplot.yticks">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">yticks</code><span class="sig-paren">(</span><em class="sig-param">ticks=[]</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#yticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.yticks" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">yticks</code><span class="sig-paren">(</span><em class="sig-param">ticks=[]</em>, <em class="sig-param">labels=None</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/utilities.html#yticks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.yticks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set y axis ticks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ticks</strong> (<em>array_like</em>) – A list of positions at which ticks should be placed along the y axis,
 defaults to empty list.</p></li>
+<li><p><strong>labels</strong> (<em>array_like</em>) – A list of explicit labels to place at the given ticks, defaults to
+<cite>None</cite>.</p></li>
 <li><p><strong>ax</strong> (<cite>matplotlib.pyplot.Axes</cite>, <cite>None</cite> by default) – The axis onto which the y axis ticks are set. If left as <cite>None</cite>,
 <cite>matplotlib.pyplot.gca()</cite> is called to get the current <cite>Axes</cite>.</p></li>
 <li><p><strong>kws</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – Arbitrary keyword arguments passed on to
