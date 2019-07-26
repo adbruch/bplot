@@ -164,6 +164,77 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
+<span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Clear axes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
+<span class="sd">        The axis to be cleared. If left as `None`,</span>
+<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ax : matplotlib.pyplot.Axes</span>
+<span class="sd">         The `Axes` that was cleared.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">ax</span>
+
+
+<div class="viewcode-block" id="hide_xaxis"><a class="viewcode-back" href="../../utilities.html#bplot.hide_xaxis">[docs]</a><span class="k">def</span> <span class="nf">hide_xaxis</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Hide x axis ticks and tick-labels.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : boolean</span>
+<span class="sd">        Whether or not to hide the x axis ticks and tick-labels, defaults to True.</span>
+
+<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
+<span class="sd">        The axis onto which the x axis is hidden.  If left as `None`,</span>
+<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    ax : matplotlib.pyplot.Axes</span>
+<span class="sd">         The `Axes` onto which the x axis was hiden.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="ow">not</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span></div>
+
+
+<div class="viewcode-block" id="hide_yaxis"><a class="viewcode-back" href="../../utilities.html#bplot.hide_yaxis">[docs]</a><span class="k">def</span> <span class="nf">hide_yaxis</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Hide y axis ticks and tick-labels.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : boolean</span>
+<span class="sd">        Whether or not to hide the y axis ticks and tick-labels, defaults to True.</span>
+
+<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
+<span class="sd">        The axis onto which the x axis is hidden.  If left as `None`,</span>
+<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    ax : matplotlib.pyplot.Axes</span>
+<span class="sd">         The `Axes` onto which the x axis was hiden.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="ow">not</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span></div>
+
+
 <div class="viewcode-block" id="labels"><a class="viewcode-back" href="../../utilities.html#bplot.labels">[docs]</a><span class="k">def</span> <span class="nf">labels</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Set axis labels.</span>
 
@@ -196,6 +267,76 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span></div>
+
+
+<div class="viewcode-block" id="legend"><a class="viewcode-back" href="../../utilities.html#bplot.legend">[docs]</a><span class="k">def</span> <span class="nf">legend</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make legend.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
+<span class="sd">        The axis onto which a legend is set. If left as `None`,</span>
+<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
+
+<span class="sd">    kws : dict</span>
+<span class="sd">        Arbitrary keyword arguments passed to `matplotlib.pyplot.legend()`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ax : matplotlib.pyplot.Axes</span>
+<span class="sd">         The `Axes` onto which the legend was drawn.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span></div>
+
+
+<div class="viewcode-block" id="xticks"><a class="viewcode-back" href="../../utilities.html#bplot.xticks">[docs]</a><span class="k">def</span> <span class="nf">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set x axis ticks.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ticks : array_like</span>
+<span class="sd">        A list of positions at which ticks should be placed along the x axis,</span>
+<span class="sd">        defaults to empty list.</span>
+
+<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
+<span class="sd">        The axis onto which the x axis ticks are set. If left as `None`,</span>
+<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
+
+<span class="sd">    kws : dict</span>
+<span class="sd">        Arbitrary keyword arguments passed on to</span>
+<span class="sd">        `matplotlib.pyplot.xticks()`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span></div>
+
+
+<div class="viewcode-block" id="yticks"><a class="viewcode-back" href="../../utilities.html#bplot.yticks">[docs]</a><span class="k">def</span> <span class="nf">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set y axis ticks.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ticks : array_like</span>
+<span class="sd">        A list of positions at which ticks should be placed along the y axis,</span>
+<span class="sd">        defaults to empty list.</span>
+
+<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
+<span class="sd">        The axis onto which the y axis ticks are set. If left as `None`,</span>
+<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
+
+<span class="sd">    kws : dict</span>
+<span class="sd">        Arbitrary keyword arguments passed on to</span>
+<span class="sd">        `matplotlib.pyplot.yticks()`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ax</span></div>
 
 
@@ -275,6 +416,7 @@
 <span class="sd">         The `Axes` onto which the plot will be drawn.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ax</span></div>
 
@@ -319,50 +461,6 @@
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">ax</span></div>
-
-
-<span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Clear axes.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
-<span class="sd">        The axis to be cleared. If left as `None`,</span>
-<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ax : matplotlib.pyplot.Axes</span>
-<span class="sd">         The `Axes` that was cleared.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">cla</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">ax</span>
-
-
-<div class="viewcode-block" id="legend"><a class="viewcode-back" href="../../utilities.html#bplot.legend">[docs]</a><span class="k">def</span> <span class="nf">legend</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Make legend.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    ax : `matplotlib.pyplot.Axes`, `None` by default</span>
-<span class="sd">        The axis onto which a legend is set. If left as `None`,</span>
-<span class="sd">        `matplotlib.pyplot.gca()` is called to get the current `Axes`.</span>
-
-<span class="sd">    kws : dict</span>
-<span class="sd">        Arbitrary keyword arguments passed to `matplotlib.pyplot.legend()`.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ax : matplotlib.pyplot.Axes</span>
-<span class="sd">         The `Axes` onto which the legend was drawn.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">**</span><span class="n">kws</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ax</span></div>
 </pre></div>
 
