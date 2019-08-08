@@ -1,5 +1,5 @@
-all = ["color", "tab_color"]
-
+import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 color = [
     "#5D69B1",
@@ -28,3 +28,8 @@ tab_color = [
     "tab:olive",
     "tab:cyan",
 ]
+
+ide = [x for x in range(20) if x % 2 == 0]
+ido = [x for x in range(20) if x % 2 == 1]
+cmap = plt.get_cmap("tab20")
+cat_color = [mpl.colors.to_hex(cmap.colors[x]) for x in ide + ido]
