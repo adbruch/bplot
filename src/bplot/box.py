@@ -1,8 +1,6 @@
 import numpy as np
 from bplot.check_data import check_data
 
-all = ["box", "box_h"]
-
 
 def _bx(x):
     """Compute five numbers for box plot."""
@@ -26,7 +24,7 @@ def box(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
 
     Parameters
     ----------
-    x : int
+    x : scalar
         The location along the x-axis at which the vertical box is placed.
 
     y : {numpy.array, pandas.core.series.Series}
@@ -60,7 +58,12 @@ def box(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
 
     ax.vlines(x, lw, uw, color=color)
     ax.vlines(x, q1, q3, lw=4, color=color)
-    # TODO(ear) add points outside of whiskers
+
+    u_outs = y[np.where(y > uw)]
+    l_outs = y[np.where(y < lw)]
+
+    ax.plot(np.repeat(x, u_outs.size), u_outs, ".", marker="*", color=color)
+    ax.plot(np.repeat(x, l_outs.size), l_outs, ".", marker="*", color=color)
 
     out = ax.plot(x, q2, markersize=10, marker=shape, color=color, label=label)
     return out
@@ -76,7 +79,7 @@ def box_h(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
         The vector of data for which the standard five number summary
         is sought.
 
-    y : int
+    y : scalar
         The location along the x-axis at which the vertical box is placed.
 
     color : string, 'tab:blue' by default
@@ -106,7 +109,12 @@ def box_h(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
 
     ax.hlines(y, lw, uw, color=color)
     ax.hlines(y, q1, q3, lw=4, color=color)
-    # TODO(ear) add points outside of whiskers
+
+    u_outs = x[np.where(x > uw)]
+    l_outs = x[np.where(x < lw)]
+
+    ax.plot(u_outs, np.repeat(y, u_outs.size), ".", marker="*", color=color)
+    ax.plot(l_outs, np.repeat(y, l_outs.size), ".", marker="*", color=color)
 
     out = ax.plot(q2, y, markersize=10, marker=shape, color=color, label=label)
     return out

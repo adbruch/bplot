@@ -2,9 +2,6 @@ from bplot.check_data import check_data
 import numpy as np
 
 
-all = ["autocorrelation"]
-
-
 def _autocorrelation(x):
     # https://lingpipe-blog.com/2012/06/08/autocorrelation-fft-kiss-eigen/
     # https://github.com/stan-dev/math/blob/5f6e8ddd100f00ddf5163c7082ecda077b1e8770/stan/math/prim/mat/fun/autocorrelation.hpp

@@ -1,13 +1,13 @@
 from bplot.autocorrelation import autocorrelation
 from bplot.box import box, box_h
-from bplot.colors import color, tab_color, cat_color
+from bplot.colors import color, tab_color, cat_color, CatColors
 from bplot.curve import curve
 from bplot.density import density
 from bplot.grid import grid
 from bplot.histogram import histogram
 from bplot.jitter import jitter
 from bplot.lag import lag
-from bplot.line import line
+from bplot.line import line, line_h, line_v
 from bplot.lv import lv
 from bplot.point import point
 from bplot.percentile import percentile, percentile_h
