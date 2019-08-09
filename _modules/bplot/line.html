@@ -161,8 +161,6 @@
   <h1>Source code for bplot.line</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">bplot.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
 
-<span class="nb">all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;line&quot;</span><span class="p">]</span>
-
 
 <div class="viewcode-block" id="line"><a class="viewcode-back" href="../../line.html#bplot.line">[docs]</a><span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Draw line.</span>
@@ -201,6 +199,91 @@
 
     <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span></div>
+
+
+<span class="k">def</span> <span class="nf">line_h</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Draw horizontal line at y.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : scalar</span>
+<span class="sd">        The value on the y-axis for which the horizontal line is drawn.</span>
+
+<span class="sd">    xmin : scalar, 0 by default</span>
+<span class="sd">        The value on the x-axis for which the line starts.</span>
+
+<span class="sd">    xmax : scalar, 1 by default</span>
+<span class="sd">            The value on the x-axis for which the line ends.</span>
+
+<span class="sd">    color : string, &#39;tab:blue&#39; by default</span>
+<span class="sd">        The color of the box.</span>
+
+<span class="sd">    alpha : float, 1.0 by default</span>
+<span class="sd">        The transparency of the color.</span>
+<span class="sd">        Values between 0 (transparent) and 1 (opague) are allowed.</span>
+
+<span class="sd">    label : string, &#39;&#39; (empty) by default</span>
+<span class="sd">        The label within a potential legend.</span>
+
+<span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
+<span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
+<span class="sd">        matplotlib.pyplot.gca() is called to get the current `Axes`.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    out : matplotlib.pyplot.Axes</span>
+<span class="sd">        The `Axes` onto which the box was drawn.</span>
+
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="k">def</span> <span class="nf">line_v</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Draw vertical line at x.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : scalar</span>
+<span class="sd">        The value on the x-axis for which the vertical line is drawn.</span>
+
+<span class="sd">    ymin : scalar, 0 by default</span>
+<span class="sd">        The value on the y-axis for which the line starts.</span>
+
+<span class="sd">    ymax : scalar, 1 by default</span>
+<span class="sd">            The value on the y-axis for which the line ends.</span>
+
+<span class="sd">    color : string, &#39;tab:blue&#39; by default</span>
+<span class="sd">        The color of the box.</span>
+
+<span class="sd">    alpha : float, 1.0 by default</span>
+<span class="sd">        The transparency of the color.</span>
+<span class="sd">        Values between 0 (transparent) and 1 (opague) are allowed.</span>
+
+<span class="sd">    label : string, &#39;&#39; (empty) by default</span>
+<span class="sd">        The label within a potential legend.</span>
+
+<span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
+<span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
+<span class="sd">        matplotlib.pyplot.gca() is called to get the current `Axes`.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    out : matplotlib.pyplot.Axes</span>
+<span class="sd">        The `Axes` onto which the box was drawn.</span>
+
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
 </pre></div>
 
            </div>
