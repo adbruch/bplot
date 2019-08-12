@@ -15,6 +15,7 @@ utilities
 .. autofunction:: LaTeX
 .. autofunction:: legend
 .. autofunction:: save
+.. autofunction:: tight_layout
 .. autofunction:: subplots
 .. autofunction:: title
 .. autofunction:: xticks
