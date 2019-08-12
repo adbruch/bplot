@@ -2,8 +2,6 @@ from bplot.check_data import check_data
 import matplotlib.pyplot as plt
 import numpy as np
 
-all = ["jitter"]
-
 
 def jitter(
     x,
@@ -12,8 +10,9 @@ def jitter(
     jitter_y=0.4,
     color="tab:blue",
     label="",
-    shape="o",
+    style="o",
     size=36,
+    alpha=1,
     ax=None,
     **kws
 ):
@@ -40,11 +39,14 @@ def jitter(
     label : string, '' (empty) by default
         The label within a potential legend.
 
-    shape : string, 'o' by default
+    style : string, 'o' by default
         The shape of the points to draw.
 
     size : int, 36 by default
         The size of the points to draw.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -60,6 +62,7 @@ def jitter(
 
     x, y, ax = check_data(x, y, ax)
 
+    # TODO add user controlled resolution
     resolution_x = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
     resolution_y = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
 
@@ -69,5 +72,7 @@ def jitter(
     jx = jitter_x * np.random.uniform(low=-r_x, high=r_x, size=x.shape[0])
     jy = jitter_y * np.random.uniform(low=-r_y, high=r_y, size=y.shape[0])
 
-    out = ax.scatter(x + jx, y + jy, c=color, label=label, marker=shape, s=size)
+    out = ax.scatter(
+        x + jx, y + jy, c=color, label=label, marker=style, s=size, alpha=alpha, **kws
+    )
     return out

@@ -1,11 +1,8 @@
 from bplot.check_data import check_data
 
-all = ["shade_x", "shade_y"]
 
-
-def shade_x(x, y1, y2, where=None, color="tab:blue", alpha=1, label="", ax=None, **kws):
+def shade_x(x, y1, y2, where=None, color="tab:blue", label="", alpha=1, ax=None, **kws):
     """Shade over x-axis.
-
 
     Parameters
     ----------
@@ -24,11 +21,11 @@ def shade_x(x, y1, y2, where=None, color="tab:blue", alpha=1, label="", ax=None,
     color : string, 'tab:blue' by default
         The color of the box.
 
-    alpha : float, 1.0 by default
-        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
-
     label : string, '' (empty) by default
         The label within a potential legend.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -51,7 +48,7 @@ def shade_x(x, y1, y2, where=None, color="tab:blue", alpha=1, label="", ax=None,
     return out
 
 
-def shade_y(y, x1, x2, where=None, color="tab:blue", alpha=1, label="", ax=None, **kws):
+def shade_y(y, x1, x2, where=None, color="tab:blue", label="", alpha=1, ax=None, **kws):
     """Shade over y-axis.
 
 
@@ -72,11 +69,11 @@ def shade_y(y, x1, x2, where=None, color="tab:blue", alpha=1, label="", ax=None,
     color : string, 'tab:blue' by default
         The color of the box.
 
-    alpha : float, 1.0 by default
-        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
-
     label : string, '' (empty) by default
         The label within a potential legend.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -94,6 +91,6 @@ def shade_y(y, x1, x2, where=None, color="tab:blue", alpha=1, label="", ax=None,
     # TODO (ear): validate x1 and x2
 
     out = ax.fill_betweenx(
-        y, x1, x2, color=color, alpha=alpha, label=label, where=where, **kws
+        y, x1, x2, color=color, label=label, alpha=alpha, where=where, **kws
     )
     return out

@@ -1,18 +1,17 @@
 from bplot.check_data import check_data
 from bplot.bayesian_blocks import bayesian_blocks
 
-all = ["histogram"]
-
 
 def histogram(
     x,
     color="tab:blue",
     label="",
+    style="-",
+    size=1.5,
+    alpha=1,
     bins="auto",
-    size=None,
-    alpha=None,
     ax=None,
-    layer=None,
+    **kws
 ):
     """Draw a histogrm.
 
@@ -26,6 +25,15 @@ def histogram(
 
     label : string, '' (empty) by default
         The label within a potential legend.
+
+    style : string, '-' by default
+        The line style of the curve.
+
+    size : float, 1.5 by default
+        The line width of the curve.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     bins : {int, string}, 'auto' by default
         The number of bins.
@@ -52,9 +60,10 @@ def histogram(
         x,
         color=color,
         label=label,
+        linestyle=style,
+        linewidth=size,
+        alpha=alpha,
         density=True,
         histtype="step",
-        alpha=alpha,
         bins=bins,
-        zorder=layer,
     )

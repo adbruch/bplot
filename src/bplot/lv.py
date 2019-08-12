@@ -3,8 +3,6 @@
 # https://github.com/mwaskom/seaborn/blob/master/seaborn/categorical.py
 # under BSD-3 license
 
-all = ["lv"]
-
 from bplot.check_data import check_data
 
 import matplotlib as mpl
@@ -23,7 +21,7 @@ def lv(
     widths=0.8,
     p=0.007,
     scale="linear",
-    k_depth="proportion",
+    k_depth="trustworthy",
     ax=None,
 ):
     """Draw vertical letter value plot.

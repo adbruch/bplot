@@ -1,30 +1,27 @@
 from bplot.check_data import check_data
 from bplot.point import point
 
-all = ["lag"]
-
 
 def lag(
-    x, lag=1, color="tab:blue", alpha=1, label="", shape="o", size=36, ax=None, **kws
+    x, lag=1, color="tab:blue", label="", style="o", size=36, alpha=1, ax=None, **kws
 ):
     """Draw lag plot.
 
     Parameters
     ----------
     x : {numpy.array, pandas.core.series.Series}
-        The location along the x-axis at which the vertical box is placed.
+        The location along the x-axis at which the lags are drawn.
 
     lag : float, 1 by default
         The lag of the plot.
 
-    # TODO(ear) complete doc
     color : string, 'tab:blue' by default
         The color of the box.
 
     label : string, '' (empty) by default
         The label within a potential legend.
 
-    shape : string, 'o' by default
+    style : string, 'o' by default
         The shape of the median within the box.
 
     ax : matplotlib.pyplot.Axes, None by default
@@ -48,10 +45,10 @@ def lag(
         y1,
         y2,
         color=color,
-        alpha=alpha,
         label=label,
-        shape=shape,
+        style=style,
         size=size,
+        alpha=alpha,
         ax=ax,
         **kws
     )

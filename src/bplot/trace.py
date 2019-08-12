@@ -2,9 +2,8 @@ from bplot.check_data import check_data
 import numpy as np
 
 
-def trace(x, color="tab:blue", label="", ax=None, **kws):
+def trace(x, color="tab:blue", label="", style="-", size=1.5, alpha=1, ax=None, **kws):
     """Draw trace plot.
-
 
     Parameters
     ----------
@@ -16,6 +15,15 @@ def trace(x, color="tab:blue", label="", ax=None, **kws):
 
     label : string, '' (empty) by default
         The label within a potential legend.
+
+    style : string, '-' by default
+        The line style of the curve.
+
+    size : float, 1.5 by default
+        The line width of the curve.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -31,5 +39,14 @@ def trace(x, color="tab:blue", label="", ax=None, **kws):
 
     x, _, ax = check_data(x, None, ax)
 
-    out = ax.plot(np.arange(len(x)), x, color=color, label=label)
+    out = ax.plot(
+        np.arange(len(x)),
+        x,
+        color=color,
+        label=label,
+        linestyle=style,
+        linewidth=size,
+        alpha=alpha,
+        **kws
+    )
     return out

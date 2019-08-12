@@ -2,8 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-all = ["check_data"]
-
 
 def check_data(x=None, y=None, ax=None):
     """Check for valid data.

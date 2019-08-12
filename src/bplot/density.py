@@ -2,10 +2,19 @@ from bplot.check_data import check_data
 import numpy as np
 from scipy import stats
 
-all = ["density"]
 
-
-def density(x, color="tab:blue", label="", bw_method=None, n=101, ax=None, **kws):
+def density(
+    x,
+    color="tab:blue",
+    label="",
+    style="-",
+    size=1.5,
+    alpha=1,
+    bw_method=None,
+    n=101,
+    ax=None,
+    **kws
+):
     """Draw density plot.
 
     Parameters
@@ -18,6 +27,15 @@ def density(x, color="tab:blue", label="", bw_method=None, n=101, ax=None, **kws
 
     label : string, '' (empty) by default
         The label within a potential legend.
+
+    style : string, '-' by default
+        The line style of the curve.
+
+    size : float, 1.5 by default
+        The line width of the curve.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     bw_method : string, None by default
         TODO (ear) The bandwidth method used for smoothing.
@@ -43,5 +61,14 @@ def density(x, color="tab:blue", label="", bw_method=None, n=101, ax=None, **kws
     xs = np.linspace(x_min, x_max, n)
 
     density = stats.kde.gaussian_kde(x, bw_method)
-    out = ax.plot(xs, density(xs), color=color, label=label, **kws)
+    out = ax.plot(
+        xs,
+        density(xs),
+        color=color,
+        label=label,
+        linestyle=style,
+        linewidth=size,
+        alpha=alpha,
+        **kws
+    )
     return out

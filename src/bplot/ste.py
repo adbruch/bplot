@@ -2,7 +2,9 @@ from bplot.check_data import check_data
 import numpy as np
 
 
-def ste(x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", shape="o", ax=None):
+def ste(
+    x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", style="o", alpha=1, ax=None
+):
     """Draw vertical standard error intervals.
 
 
@@ -26,8 +28,11 @@ def ste(x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", shape="o", ax=N
     label : string, '' (empty) by default
         The label within a potential legend.
 
-    shape : string, 'o' by default
+    style : string, 'o' by default
         The shape of the mean point.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -44,17 +49,21 @@ def ste(x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", shape="o", ax=N
 
     ybar, ste = np.mean(y), np.std(y) / np.sqrt(len(y))
 
-    lw_mid, uw_mid = ybar - z_mid * ste, ybar + z_mid * ste
+    lw_mid, uw_mid = ybar - z_inner * ste, ybar + z_inner * ste
     lw, uw = ybar - z * ste, ybar + z * ste
 
-    ax.vlines(x, lw, uw, color=color)
-    ax.vlines(x, lw_mid, uw_mid, lw=4, color=color)
+    ax.vlines(x, lw, uw, color=color, alpha=alpha)
+    ax.vlines(x, lw_mid, uw_mid, lw=4, color=color, alpha=alpha)
 
-    out = ax.plot(x, ybar, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(
+        x, ybar, color=color, label=label, markersize=10, marker=style, alpha=alpha
+    )
     return out
 
 
-def ste_h(x, y, z=1.96, z_mid=0.675, color="tab:blue", label="", shape="o", ax=None):
+def ste_h(
+    x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", style="o", alpha=1, ax=None
+):
     """Draw horizontal standard error intervals.
 
 
@@ -78,8 +87,11 @@ def ste_h(x, y, z=1.96, z_mid=0.675, color="tab:blue", label="", shape="o", ax=N
     label : string, '' (empty) by default
         The label within a potential legend.
 
-    shape : string, 'o' by default
+    style : string, 'o' by default
         The shape of the mean point.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -96,11 +108,13 @@ def ste_h(x, y, z=1.96, z_mid=0.675, color="tab:blue", label="", shape="o", ax=N
 
     xbar, ste = np.mean(x), np.std(x) / np.sqrt(len(x))
 
-    lw_mid, uw_mid = xbar - z_mid * ste, xbar + z_mid * ste
+    lw_mid, uw_mid = xbar - z_inner * ste, xbar + z_inner * ste
     lw, uw = xbar - z * ste, xbar + z * ste
 
-    ax.hlines(y, lw, uw, color=color)
-    ax.hlines(y, lw_mid, uw_mid, lw=4, color=color)
+    ax.hlines(y, lw, uw, color=color, alpha=alpha)
+    ax.hlines(y, lw_mid, uw_mid, lw=4, color=color, alpha=alpha)
 
-    out = ax.plot(xbar, y, markersize=10, marker=shape, color=color, label=label)
+    out = ax.plot(
+        xbar, y, color=color, label=label, markersize=10, marker=style, alpha=alpha
+    )
     return out
