@@ -133,7 +133,7 @@ def legend(ax=None, **kws):
     return ax
 
 
-def xticks(ticks=[], labels=None, ax=None, **kws):
+def xticks(ticks=[], labels=None, angle=False, ax=None, **kws):
     """Set x axis ticks.
 
     Parameters
@@ -155,6 +155,10 @@ def xticks(ticks=[], labels=None, ax=None, **kws):
         `matplotlib.pyplot.xticks()`.
 
     """
+
+    if angle and "rotation" not in kws:
+        kws["rotation"] = 30
+        kws["ha"] = "right"
 
     _, _, ax = check_data(None, None, ax)
     plt.xticks(ticks=ticks, labels=labels, **kws)
