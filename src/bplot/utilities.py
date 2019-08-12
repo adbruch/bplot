@@ -287,6 +287,27 @@ def LaTeX(usetex=True):
     return None
 
 
+def tight_layout(ax=None):
+    """Tighten up layout.
+
+    Parameters
+    ----------
+    ax : `matplotlib.pyplot.Axes`, `None` by default
+        The axis from which the plot to be saved derives. If left as `None`,
+        `matplotlib.pyplot.gca()` is called to get the current `Axes`.
+
+    Returns
+    -------
+
+    ax : matplotlib.pyplot.Axes
+         The `Axes` for which the plot was saved.
+    """
+
+    _, _, ax = check_data(None, None, ax)
+    plt.tight_layout()
+    return ax
+
+
 def save(filename, ax=None):
     """Save figure.
 
@@ -306,7 +327,6 @@ def save(filename, ax=None):
          The `Axes` for which the plot was saved.
     """
 
-    _, _, ax = check_data(None, None, ax)
-    plt.tight_layout()
+    ax = tight_layout(ax)
     plt.savefig(filename)
     return ax

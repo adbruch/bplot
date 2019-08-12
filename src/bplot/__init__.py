@@ -31,6 +31,7 @@ from bplot.utilities import (
     title,
     xticks,
     yticks,
+    tight_layout,
 )
 from bplot.violin import violin, violin_h
 
