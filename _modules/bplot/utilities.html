@@ -294,7 +294,7 @@
     <span class="k">return</span> <span class="n">ax</span></div>
 
 
-<div class="viewcode-block" id="xticks"><a class="viewcode-back" href="../../utilities.html#bplot.xticks">[docs]</a><span class="k">def</span> <span class="nf">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+<div class="viewcode-block" id="xticks"><a class="viewcode-back" href="../../utilities.html#bplot.xticks">[docs]</a><span class="k">def</span> <span class="nf">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Set x axis ticks.</span>
 
 <span class="sd">    Parameters</span>
@@ -316,6 +316,10 @@
 <span class="sd">        `matplotlib.pyplot.xticks()`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">angle</span> <span class="ow">and</span> <span class="s2">&quot;rotation&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kws</span><span class="p">:</span>
+        <span class="n">kws</span><span class="p">[</span><span class="s2">&quot;rotation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+        <span class="n">kws</span><span class="p">[</span><span class="s2">&quot;ha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span>
 
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">ticks</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
