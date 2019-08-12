@@ -10,6 +10,7 @@ from bplot.lag import lag
 from bplot.line import line, line_h, line_v
 from bplot.lv import lv
 from bplot.point import point
+from bplot.scatter import scatter
 from bplot.percentile import percentile, percentile_h
 from bplot.rug import rug
 from bplot.shade import shade_x, shade_y
