@@ -163,8 +163,6 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="nb">all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;jitter&quot;</span><span class="p">]</span>
-
 
 <div class="viewcode-block" id="jitter"><a class="viewcode-back" href="../../jitter.html#bplot.jitter">[docs]</a><span class="k">def</span> <span class="nf">jitter</span><span class="p">(</span>
     <span class="n">x</span><span class="p">,</span>
@@ -173,8 +171,9 @@
     <span class="n">jitter_y</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
     <span class="n">size</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kws</span>
 <span class="p">):</span>
@@ -201,11 +200,14 @@
 <span class="sd">    label : string, &#39;&#39; (empty) by default</span>
 <span class="sd">        The label within a potential legend.</span>
 
-<span class="sd">    shape : string, &#39;o&#39; by default</span>
+<span class="sd">    style : string, &#39;o&#39; by default</span>
 <span class="sd">        The shape of the points to draw.</span>
 
 <span class="sd">    size : int, 36 by default</span>
 <span class="sd">        The size of the points to draw.</span>
+
+<span class="sd">    alpha : float, 1.0 by default</span>
+<span class="sd">        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</span>
 
 <span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
 <span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
@@ -221,6 +223,7 @@
 
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
 
+    <span class="c1"># TODO add user controlled resolution</span>
     <span class="n">resolution_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">resolution_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -230,7 +233,9 @@
     <span class="n">jx</span> <span class="o">=</span> <span class="n">jitter_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="n">r_x</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">r_x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">jy</span> <span class="o">=</span> <span class="n">jitter_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="n">r_y</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">r_y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">jx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">jy</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">x</span> <span class="o">+</span> <span class="n">jx</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">jy</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span></div>
 </pre></div>
 

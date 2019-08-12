@@ -166,7 +166,7 @@
 <h1>median absolute deviation<a class="headerlink" href="#median-absolute-deviation" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bplot.mad">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">mad</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">z=1.96</em>, <em class="sig-param">z_inner=0.675</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">shape='o'</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/mad.html#mad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.mad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">mad</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">z=1.96</em>, <em class="sig-param">z_inner=0.675</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">style='o'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/mad.html#mad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.mad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw vertical median absolute deviation intervals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -177,7 +177,8 @@
 <li><p><strong>z_inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.675 by default</em>) – The number of standard deviations from the mean for the inner bound.</p></li>
 <li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the rug.</p></li>
 <li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
-<li><p><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the mean point.</p></li>
+<li><p><strong>style</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the mean point.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
@@ -193,7 +194,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 
 <dl class="function">
 <dt id="bplot.mad_h">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">mad_h</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">z=1.96</em>, <em class="sig-param">z_inner=0.675</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">shape='o'</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/mad.html#mad_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.mad_h" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">mad_h</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">z=1.96</em>, <em class="sig-param">z_inner=0.675</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">style='o'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/mad.html#mad_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.mad_h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw horizontal median absolute deviation intervals.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -204,6 +205,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 <li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the rug.</p></li>
 <li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
 <li><p><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the mean point.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>

@@ -166,7 +166,7 @@
 <h1>line<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bplot.line">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">label=''</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/line.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.line" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">style='-'</em>, <em class="sig-param">size=1.5</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/line.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw line.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -174,8 +174,10 @@
 <li><p><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of x-axis points for the line is drawn.</p></li>
 <li><p><strong>y</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of y-axis points for the curve is drawn.</p></li>
 <li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</p></li>
-<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
 <li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
+<li><p><strong>style</strong> (<em>string</em><em>, </em><em>'-' by default</em>) – The line style of the curve.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.5 by default</em>) – The line width of the curve.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
@@ -191,7 +193,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 
 <dl class="function">
 <dt id="bplot.line_h">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">line_h</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">xmin=0</em>, <em class="sig-param">xmax=1</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">label=''</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/line.html#line_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.line_h" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">line_h</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">xmin=0</em>, <em class="sig-param">xmax=1</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">style='-'</em>, <em class="sig-param">size=1.5</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/line.html#line_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.line_h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw horizontal line at y.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -200,9 +202,11 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 <li><p><strong>xmin</strong> (<em>scalar</em><em>, </em><em>0 by default</em>) – The value on the x-axis for which the line starts.</p></li>
 <li><p><strong>xmax</strong> (<em>scalar</em><em>, </em><em>1 by default</em>) – The value on the x-axis for which the line ends.</p></li>
 <li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</p></li>
+<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
+<li><p><strong>style</strong> (<em>string</em><em>, </em><em>'-' by default</em>) – The line style of the curve.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.5 by default</em>) – The line width of the curve.</p></li>
 <li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.
 Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
-<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
@@ -218,7 +222,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 
 <dl class="function">
 <dt id="bplot.line_v">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">line_v</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">ymin=0</em>, <em class="sig-param">ymax=1</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">label=''</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/line.html#line_v"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.line_v" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">line_v</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">ymin=0</em>, <em class="sig-param">ymax=1</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">style='-'</em>, <em class="sig-param">size=1.5</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/line.html#line_v"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.line_v" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw vertical line at x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -227,9 +231,11 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 <li><p><strong>ymin</strong> (<em>scalar</em><em>, </em><em>0 by default</em>) – The value on the y-axis for which the line starts.</p></li>
 <li><p><strong>ymax</strong> (<em>scalar</em><em>, </em><em>1 by default</em>) – The value on the y-axis for which the line ends.</p></li>
 <li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</p></li>
+<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
+<li><p><strong>style</strong> (<em>string</em><em>, </em><em>'-' by default</em>) – The line style of the curve.</p></li>
+<li><p><strong>size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.5 by default</em>) – The line width of the curve.</p></li>
 <li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.
 Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
-<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>

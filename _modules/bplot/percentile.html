@@ -162,11 +162,18 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">bplot.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
 
-<span class="nb">all</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;percentile_h&quot;</span><span class="p">]</span>
-
 
 <div class="viewcode-block" id="percentile"><a class="viewcode-back" href="../../percentile.html#bplot.percentile">[docs]</a><span class="k">def</span> <span class="nf">percentile</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">outer</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">outer</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">inner</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kws</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Draw vertical percentile interval.</span>
 
@@ -191,8 +198,11 @@
 <span class="sd">    label : string, &#39;&#39; (empty) by default</span>
 <span class="sd">        The label within a potential legend.</span>
 
-<span class="sd">    shape : string, &#39;o&#39; by default</span>
+<span class="sd">    style : string, &#39;o&#39; by default</span>
 <span class="sd">        The shape of the median within the box.</span>
+
+<span class="sd">    alpha : float, 1.0 by default</span>
+<span class="sd">        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</span>
 
 <span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
 <span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
@@ -212,15 +222,26 @@
     <span class="n">l</span><span class="p">,</span> <span class="n">lm</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">um</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="n">alpha_l</span><span class="p">,</span> <span class="n">alpha_lm</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha_lm</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha_l</span>
     <span class="n">q_l</span><span class="p">,</span> <span class="n">q_lm</span><span class="p">,</span> <span class="n">q_m</span><span class="p">,</span> <span class="n">q_um</span><span class="p">,</span> <span class="n">q_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l</span><span class="p">,</span> <span class="n">lm</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">um</span><span class="p">,</span> <span class="n">u</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q_l</span><span class="p">,</span> <span class="n">q_u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q_lm</span><span class="p">,</span> <span class="n">q_um</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q_l</span><span class="p">,</span> <span class="n">q_u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q_lm</span><span class="p">,</span> <span class="n">q_um</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
 
-    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q_m</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">q_m</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span></div>
 
 
 <div class="viewcode-block" id="percentile_h"><a class="viewcode-back" href="../../percentile.html#bplot.percentile_h">[docs]</a><span class="k">def</span> <span class="nf">percentile_h</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">outer</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">outer</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">inner</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kws</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Draw horizontal percentile interval.</span>
 
@@ -245,8 +266,11 @@
 <span class="sd">    label : string, &#39;&#39; (empty) by default</span>
 <span class="sd">        The label within a potential legend.</span>
 
-<span class="sd">    shape : string, &#39;o&#39; by default</span>
+<span class="sd">    style : string, &#39;o&#39; by default</span>
 <span class="sd">        The shape of the median within the box.</span>
+
+<span class="sd">    alpha : float, 1.0 by default</span>
+<span class="sd">        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</span>
 
 <span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
 <span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
@@ -266,10 +290,12 @@
     <span class="n">l</span><span class="p">,</span> <span class="n">lm</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">um</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="n">alpha_l</span><span class="p">,</span> <span class="n">alpha_lm</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha_lm</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha_l</span>
     <span class="n">q_l</span><span class="p">,</span> <span class="n">q_lm</span><span class="p">,</span> <span class="n">q_m</span><span class="p">,</span> <span class="n">q_um</span><span class="p">,</span> <span class="n">q_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l</span><span class="p">,</span> <span class="n">lm</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">um</span><span class="p">,</span> <span class="n">u</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">q_l</span><span class="p">,</span> <span class="n">q_u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">q_lm</span><span class="p">,</span> <span class="n">q_um</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">q_l</span><span class="p">,</span> <span class="n">q_u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">q_lm</span><span class="p">,</span> <span class="n">q_um</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
 
-    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">q_m</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">q_m</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
+    <span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span></div>
 </pre></div>
 

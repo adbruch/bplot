@@ -168,7 +168,7 @@
 <h1>percentile<a class="headerlink" href="#percentile" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bplot.percentile">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">percentile</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">outer=0.8</em>, <em class="sig-param">inner=0.5</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">shape='o'</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">percentile</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">outer=0.8</em>, <em class="sig-param">inner=0.5</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">style='o'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw vertical percentile interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -179,7 +179,8 @@
 <li><p><strong>inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.5 by default</em>) – The inner interval percentage.</p></li>
 <li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</p></li>
 <li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
-<li><p><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</p></li>
+<li><p><strong>style</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
@@ -195,7 +196,7 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 
 <dl class="function">
 <dt id="bplot.percentile_h">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">percentile_h</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">outer=0.8</em>, <em class="sig-param">inner=0.5</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">shape='o'</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile_h" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">percentile_h</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">outer=0.8</em>, <em class="sig-param">inner=0.5</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">style='o'</em>, <em class="sig-param">alpha=1</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/percentile.html#percentile_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.percentile_h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw horizontal percentile interval.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -206,7 +207,8 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 <li><p><strong>inner</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>0.5 by default</em>) – The inner interval percentage.</p></li>
 <li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the box.</p></li>
 <li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
-<li><p><strong>shape</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</p></li>
+<li><p><strong>style</strong> (<em>string</em><em>, </em><em>'o' by default</em>) – The shape of the median within the box.</p></li>
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
 matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
 </ul>
