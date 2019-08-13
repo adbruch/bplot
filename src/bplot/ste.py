@@ -1,4 +1,6 @@
 from bplot.check_data import check_data
+from bplot.line import line_h, line_v
+from bplot.point import point
 import numpy as np
 
 
@@ -60,12 +62,10 @@ def ste(
     lw_mid, uw_mid = ybar - z_inner * ste, ybar + z_inner * ste
     lw, uw = ybar - z * ste, ybar + z * ste
 
-    ax.vlines(x, lw, uw, color=color, alpha=alpha)
-    ax.vlines(x, lw_mid, uw_mid, lw=4, color=color, alpha=alpha)
+    line_v(x, lw, uw, size=2, color=color, alpha=alpha)
+    line_v(x, lw_mid, uw_mid, size=5, color=color, alpha=alpha)
 
-    out = ax.plot(
-        x, ybar, color=color, label=label, markersize=10, marker=style, alpha=alpha
-    )
+    out = point(x, ybar, color=color, label=label, size=2, style=style, alpha=alpha)
     return out
 
 
@@ -127,10 +127,8 @@ def ste_h(
     lw_mid, uw_mid = xbar - z_inner * ste, xbar + z_inner * ste
     lw, uw = xbar - z * ste, xbar + z * ste
 
-    ax.hlines(y, lw, uw, color=color, alpha=alpha)
-    ax.hlines(y, lw_mid, uw_mid, lw=4, color=color, alpha=alpha)
+    line_h(y, lw, uw, size=2, color=color, alpha=alpha)
+    line_h(y, lw_mid, uw_mid, size=5, color=color, alpha=alpha)
 
-    out = ax.plot(
-        xbar, y, color=color, label=label, markersize=10, marker=style, alpha=alpha
-    )
+    out = point(xbar, y, color=color, label=label, size=2, style=style, alpha=alpha)
     return out

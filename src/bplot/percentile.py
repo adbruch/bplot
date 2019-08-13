@@ -1,5 +1,7 @@
-import numpy as np
 from bplot.check_data import check_data
+from bplot.line import line_h, line_v
+from bplot.point import point
+import numpy as np
 
 
 def percentile(
@@ -61,12 +63,10 @@ def percentile(
     l, lm, m, um, u = alpha_l, alpha_lm, 0.5, 1 - alpha_lm, 1 - alpha_l
     q_l, q_lm, q_m, q_um, q_u = np.percentile(y, np.array([l, lm, m, um, u]) * 100)
 
-    ax.vlines(x, q_l, q_u, color=color, alpha=alpha)
-    ax.vlines(x, q_lm, q_um, lw=4, color=color, alpha=alpha)
+    line_v(x, q_l, q_u, size=2, color=color, alpha=alpha)
+    line_v(x, q_lm, q_um, size=5, color=color, alpha=alpha)
 
-    out = ax.plot(
-        x, q_m, markersize=10, marker=style, color=color, label=label, alpha=alpha
-    )
+    out = point(x, q_m, size=2, style=style, color=color, label=label, alpha=alpha)
     return out
 
 
@@ -129,10 +129,8 @@ def percentile_h(
     l, lm, m, um, u = alpha_l, alpha_lm, 0.5, 1 - alpha_lm, 1 - alpha_l
     q_l, q_lm, q_m, q_um, q_u = np.percentile(x, np.array([l, lm, m, um, u]) * 100)
 
-    ax.hlines(y, q_l, q_u, color=color, alpha=alpha)
-    ax.hlines(y, q_lm, q_um, lw=4, color=color, alpha=alpha)
+    line_h(y, q_l, q_u, size=2, color=color, alpha=alpha)
+    line_h(y, q_lm, q_um, size=5, color=color, alpha=alpha)
 
-    out = ax.plot(
-        q_m, y, markersize=10, marker=style, color=color, label=label, alpha=alpha
-    )
+    out = point(q_m, y, size=2, style=style, color=color, label=label, alpha=alpha)
     return out

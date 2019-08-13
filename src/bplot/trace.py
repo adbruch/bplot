@@ -1,4 +1,5 @@
 from bplot.check_data import check_data
+from bplot.line import line
 import numpy as np
 
 
@@ -41,13 +42,13 @@ def trace(
 
     x, _, ax = check_data(x, None, ax)
 
-    out = ax.plot(
+    out = line(
         np.arange(len(x)),
         x,
         color=color,
         label=label,
-        linestyle=style,
-        linewidth=size,
+        style=style,
+        size=size,
         alpha=alpha,
         **kws
     )

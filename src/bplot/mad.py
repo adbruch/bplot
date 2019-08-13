@@ -1,4 +1,6 @@
 from bplot.check_data import check_data
+from bplot.point import point
+from bplot.line import line_h, line_v
 import numpy as np
 from scipy.stats import norm
 
@@ -65,12 +67,10 @@ def mad(
     lw_mid, uw_mid = med - z_inner * mad, med + z_inner * mad
     lw, uw = med - z * mad, med + z * mad
 
-    ax.vlines(x, lw, uw, color=color, alpha=alpha)
-    ax.vlines(x, lw_mid, uw_mid, lw=4, color=color, alpha=alpha)
+    line_v(x, lw, uw, size=2, color=color, alpha=alpha)
+    line_v(x, lw_mid, uw_mid, size=5, color=color, alpha=alpha)
 
-    out = ax.plot(
-        x, med, markersize=10, marker=style, color=color, label=label, alpha=alpha
-    )
+    out = point(x, med, size=2, style=style, color=color, label=label, alpha=alpha)
     return out
 
 
@@ -129,10 +129,8 @@ def mad_h(
     lw_mid, uw_mid = med - z_inner * mad, med + z_inner * mad
     lw, uw = med - z * mad, med + z * mad
 
-    ax.hlines(y, lw, uw, color=color, alpha=alpha)
-    ax.hlines(y, lw_mid, uw_mid, lw=4, color=color, alpha=alpha)
+    line_h(y, lw, uw, size=2, color=color, alpha=alpha)
+    line_h(y, lw_mid, uw_mid, size=5, color=color, alpha=alpha)
 
-    out = ax.plot(
-        med, y, markersize=10, marker=style, color=color, label=label, alpha=alpha
-    )
+    out = point(med, y, size=2, style=style, color=color, label=label, alpha=alpha)
     return out
