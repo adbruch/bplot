@@ -2,7 +2,7 @@ from bplot.check_data import check_data
 import matplotlib.pyplot as plt
 
 
-def rug(x, y=0, color="tab:blue", label="", alpha=1, ax=None, **kws):
+def rug(x, y=0, color="tab:blue", label="", alpha=1.0, ax=None, **kws):
     """Draw rug.
 
     Parameters

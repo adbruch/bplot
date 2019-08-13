@@ -3,7 +3,15 @@ import numpy as np
 
 
 def std(
-    x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", style="o", alpha=1, ax=None
+    x,
+    y,
+    z=1.96,
+    z_inner=0.675,
+    color="tab:blue",
+    label="",
+    style="o",
+    alpha=1.0,
+    ax=None,
 ):
     """Draw vertical standard deviation intervals.
 
@@ -62,7 +70,15 @@ def std(
 
 
 def std_h(
-    x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", style="o", alpha=1, ax=None
+    x,
+    y,
+    z=1.96,
+    z_inner=0.675,
+    color="tab:blue",
+    label="",
+    style="o",
+    alpha=1.0,
+    ax=None,
 ):
     """Draw horizontal standard deviation intervals.
 

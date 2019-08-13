@@ -1,5 +1,7 @@
 import numpy as np
 from bplot.check_data import check_data
+from bplot.line import line_h, line_v
+from bplot.point import point
 
 
 def _bx(x):
@@ -19,7 +21,7 @@ def _bx(x):
     return q1, q2, q3, lw, uw
 
 
-def box(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
+def box(x, y, color="tab:blue", label="", style="o", alpha=1.0, ax=None, **kws):
     """Draw vertical box plot.
 
     Parameters
@@ -37,8 +39,11 @@ def box(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
     label : string, '' (empty) by default
         The label within a potential legend.
 
-    shape : string, 'o' by default
+    style : string, 'o' by default
         The shape of the median within the box.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -56,20 +61,20 @@ def box(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
 
     q1, q2, q3, lw, uw = _bx(y)
 
-    ax.vlines(x, lw, uw, color=color)
-    ax.vlines(x, q1, q3, lw=4, color=color)
+    line_v(x, lw, uw, size=2, color=color, alpha=alpha)
+    line_v(x, q1, q3, size=5, color=color, alpha=alpha)
 
     u_outs = y[np.where(y > uw)]
     l_outs = y[np.where(y < lw)]
 
-    ax.plot(np.repeat(x, u_outs.size), u_outs, ".", marker="*", color=color)
-    ax.plot(np.repeat(x, l_outs.size), l_outs, ".", marker="*", color=color)
+    point(np.repeat(x, u_outs.size), u_outs, style="*", color=color, alpha=alpha)
+    point(np.repeat(x, l_outs.size), l_outs, style="*", color=color, alpha=alpha)
 
-    out = ax.plot(x, q2, markersize=10, marker=shape, color=color, label=label)
+    out = point(x, q2, color=color, label=label, size=2, style=style, alpha=alpha)
     return out
 
 
-def box_h(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
+def box_h(x, y, color="tab:blue", label="", style="o", alpha=1.0, ax=None, **kws):
     """Draw horizontal box plot.
 
 
@@ -88,8 +93,11 @@ def box_h(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
     label : string, '' (empty) by default
         The label within a potential legend.
 
-    shape : string, 'o' by default
+    style : string, 'o' by default
         The shape of the median within the box.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,
@@ -107,14 +115,14 @@ def box_h(x, y, color="tab:blue", label="", shape="o", ax=None, **kws):
 
     q1, q2, q3, lw, uw = _bx(x)
 
-    ax.hlines(y, lw, uw, color=color)
-    ax.hlines(y, q1, q3, lw=4, color=color)
+    line_h(y, lw, uw, size=2, color=color, alpha=alpha)
+    line_h(y, q1, q3, size=5, color=color, alpha=alpha)
 
     u_outs = x[np.where(x > uw)]
     l_outs = x[np.where(x < lw)]
 
-    ax.plot(u_outs, np.repeat(y, u_outs.size), ".", marker="*", color=color)
-    ax.plot(l_outs, np.repeat(y, l_outs.size), ".", marker="*", color=color)
+    point(u_outs, np.repeat(y, u_outs.size), style="*", color=color, alpha=alpha)
+    point(l_outs, np.repeat(y, l_outs.size), style="*", color=color, alpha=alpha)
 
-    out = ax.plot(q2, y, markersize=10, marker=shape, color=color, label=label)
+    out = point(q2, y, size=2, style=style, color=color, label=label, alpha=alpha)
     return out

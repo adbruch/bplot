@@ -1,7 +1,9 @@
 from bplot.check_data import check_data
 
 
-def shade_x(x, y1, y2, where=None, color="tab:blue", label="", alpha=1, ax=None, **kws):
+def shade_x(
+    x, y1, y2, where=None, color="tab:blue", label="", alpha=1.0, ax=None, **kws
+):
     """Shade over x-axis.
 
     Parameters

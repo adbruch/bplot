@@ -2,7 +2,7 @@ from bplot.check_data import check_data
 
 
 def line(
-    x, y, color="tab:blue", label="", style="-", size=1.5, alpha=1, ax=None, **kws
+    x, y, color="tab:blue", label="", style="-", size=1.5, alpha=1.0, ax=None, **kws
 ):
     """Draw line.
 
@@ -65,7 +65,7 @@ def line_h(
     label="",
     style="-",
     size=1.5,
-    alpha=1,
+    alpha=1.0,
     ax=None,
     **kws
 ):
@@ -111,9 +111,9 @@ def line_h(
         The `Axes` onto which the box was drawn.
 
    """
-    _, _, ax = check_data(None, None, ax)
+    _, y, ax = check_data(None, y, ax)
 
-    out = ax.axhline(
+    out = ax.hlines(
         y,
         xmin,
         xmax,
@@ -129,13 +129,13 @@ def line_h(
 
 def line_v(
     x,
-    ymin=0,
-    ymax=1,
+    ymin,
+    ymax,
     color="tab:blue",
     label="",
     style="-",
     size=1.5,
-    alpha=1,
+    alpha=1.0,
     ax=None,
     **kws
 ):
@@ -180,9 +180,9 @@ def line_v(
         The `Axes` onto which the box was drawn.
 
    """
-    _, _, ax = check_data(None, None, ax)
+    x, _, ax = check_data(x, None, ax)
 
-    out = ax.axvline(
+    out = ax.vlines(
         x,
         ymin,
         ymax,

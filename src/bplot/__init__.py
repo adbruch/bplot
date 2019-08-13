@@ -1,6 +1,6 @@
 from bplot.autocorrelation import autocorrelation
 from bplot.box import box, box_h
-from bplot.colors import color, tab_color, cat_color, CatColors
+from bplot.colors import color, tab_color, old_color, CatColors
 from bplot.curve import curve
 from bplot.density import density
 from bplot.grid import grid

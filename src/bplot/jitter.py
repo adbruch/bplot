@@ -1,5 +1,5 @@
 from bplot.check_data import check_data
-import matplotlib.pyplot as plt
+from bplot.scatter import scatter
 import numpy as np
 
 
@@ -11,8 +11,8 @@ def jitter(
     color="tab:blue",
     label="",
     style="o",
-    size=36,
-    alpha=1,
+    size=1.0,
+    alpha=1.0,
     ax=None,
     **kws
 ):
@@ -42,8 +42,8 @@ def jitter(
     style : string, 'o' by default
         The shape of the points to draw.
 
-    size : int, 36 by default
-        The size of the points to draw.
+    size : int, 1 by default
+        The size of the points to draw.  In matplotlib terms, this is equivalent to mpl.rcParam['lines.markersize'] = 6**(size + 1).
 
     alpha : float, 1.0 by default
         The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
@@ -62,7 +62,6 @@ def jitter(
 
     x, y, ax = check_data(x, y, ax)
 
-    # TODO add user controlled resolution
     resolution_x = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
     resolution_y = np.min(np.diff(np.sort(np.unique(x))).tolist() or 1)
 
@@ -72,7 +71,14 @@ def jitter(
     jx = jitter_x * np.random.uniform(low=-r_x, high=r_x, size=x.shape[0])
     jy = jitter_y * np.random.uniform(low=-r_y, high=r_y, size=y.shape[0])
 
-    out = ax.scatter(
-        x + jx, y + jy, c=color, label=label, marker=style, s=size, alpha=alpha, **kws
+    out = scatter(
+        x + jx,
+        y + jy,
+        color=color,
+        label=label,
+        style=style,
+        size=size,
+        alpha=alpha,
+        **kws
     )
     return out

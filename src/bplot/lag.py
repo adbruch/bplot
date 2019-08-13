@@ -3,7 +3,7 @@ from bplot.point import point
 
 
 def lag(
-    x, lag=1, color="tab:blue", label="", style="o", size=36, alpha=1, ax=None, **kws
+    x, lag=1, color="tab:blue", label="", style="o", size=1.0, alpha=1.0, ax=None, **kws
 ):
     """Draw lag plot.
 
@@ -21,8 +21,14 @@ def lag(
     label : string, '' (empty) by default
         The label within a potential legend.
 
+    size : int, 1 by default
+        The size of the points to draw.  In matplotlib terms, this is equivalent to mpl.rcParam['lines.markersize'] = 6**(size + 1).
+
     style : string, 'o' by default
         The shape of the median within the box.
+
+    alpha : float, 1.0 by default
+        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
 
     ax : matplotlib.pyplot.Axes, None by default
         The axis onto which the box is drawn.  If left as None,

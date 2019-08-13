@@ -1,4 +1,5 @@
 from bplot.check_data import check_data
+from bplot.curve import curve
 import numpy as np
 from scipy import stats
 
@@ -9,7 +10,7 @@ def density(
     label="",
     style="-",
     size=1.5,
-    alpha=1,
+    alpha=1.0,
     bw_method=None,
     n=101,
     ax=None,
@@ -61,13 +62,13 @@ def density(
     xs = np.linspace(x_min, x_max, n)
 
     density = stats.kde.gaussian_kde(x, bw_method)
-    out = ax.plot(
+    out = curve(
         xs,
         density(xs),
         color=color,
         label=label,
-        linestyle=style,
-        linewidth=size,
+        style=style,
+        size=size,
         alpha=alpha,
         **kws
     )

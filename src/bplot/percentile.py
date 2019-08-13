@@ -10,7 +10,7 @@ def percentile(
     color="tab:blue",
     label="",
     style="o",
-    alpha=1,
+    alpha=1.0,
     ax=None,
     **kws
 ):

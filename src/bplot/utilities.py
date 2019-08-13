@@ -103,9 +103,9 @@ def labels(x="", y="", ax=None, **kws):
 
     _, _, ax = check_data(None, None, ax)
     if x is not None:
-        plt.xlabel(x, **kws)
+        ax.set_xlabel(x, **kws)
     if y is not None:
-        plt.ylabel(y, **kws)
+        ax.set_ylabel(y, **kws)
     return ax
 
 
@@ -250,7 +250,7 @@ def subplots(nrows=1, ncols=1, **kws):
     """
 
     fig, axes = plt.subplots(nrows=nrows, ncols=ncols, **kws)
-    return axes
+    return fig, axes
 
 
 def current_axis(ax=None):

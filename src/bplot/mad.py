@@ -8,7 +8,15 @@ def mad_std(x):
 
 
 def mad(
-    x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", style="o", alpha=1, ax=None
+    x,
+    y,
+    z=1.96,
+    z_inner=0.675,
+    color="tab:blue",
+    label="",
+    style="o",
+    alpha=1.0,
+    ax=None,
 ):
     """Draw vertical median absolute deviation intervals.
 
@@ -67,7 +75,15 @@ def mad(
 
 
 def mad_h(
-    x, y, z=1.96, z_inner=0.675, color="tab:blue", label="", style="o", alpha=1, ax=None
+    x,
+    y,
+    z=1.96,
+    z_inner=0.675,
+    color="tab:blue",
+    label="",
+    style="o",
+    alpha=1.0,
+    ax=None,
 ):
     """Draw horizontal median absolute deviation intervals.
 

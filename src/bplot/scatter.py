@@ -2,7 +2,7 @@ from bplot.check_data import check_data
 
 
 def scatter(
-    x, y, color="tab:blue", label="", style="o", size=36, alpha=1, ax=None, **kws
+    x, y, color="tab:blue", label="", style="o", size=1.0, alpha=1.0, ax=None, **kws
 ):
     """Draw scatter plot.
 
@@ -23,8 +23,8 @@ def scatter(
     style : string, 'o' by default
         The shape of the points to draw.
 
-    size : int, 36 by default
-        The size of the points to draw.
+    size : int, 1 by default
+        The size of the points to draw.  In matplotlib terms, this is equivalent to mpl.rcParam['lines.markersize'] = 6**(size + 1).
 
     alpha : float, 1.0 by default
         The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.
@@ -44,6 +44,6 @@ def scatter(
     x, y, ax = check_data(x, y, ax)
 
     out = ax.scatter(
-        x, y, c=color, label=label, marker=style, s=size, alpha=alpha, **kws
+        x, y, c=color, label=label, marker=style, s=6 ** (size + 1), alpha=alpha, **kws
     )
     return out

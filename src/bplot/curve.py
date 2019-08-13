@@ -2,7 +2,7 @@ from bplot.check_data import check_data
 
 
 def curve(
-    x, y, color="tab:blue", label="", style="-", size=1.5, alpha=1, ax=None, **kws
+    x, y, color="tab:blue", label="", style="-", size=1.5, alpha=1.0, ax=None, **kws
 ):
     """Draw curve.
 

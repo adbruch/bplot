@@ -8,7 +8,7 @@ def histogram(
     label="",
     style="-",
     size=1.5,
-    alpha=1,
+    alpha=1.0,
     bins="auto",
     ax=None,
     **kws

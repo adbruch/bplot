@@ -13,18 +13,34 @@ def check_data(x=None, y=None, ax=None):
     """
 
     if x is not None:
-        if type(x) is not np.ndarray:
-            assert type(x) is pd.core.series.Series
-            x = x.values
-        if len(x.shape) > 1:
-            x = x.reshape((x.shape[0],))
+        if not isinstance(x, np.ndarray):
+            if isinstance(x, pd.core.series.Series):
+                x = x.values
+            elif isinstance(x, list):
+                x = np.asarray(x)
+            elif isinstance(x, (int, float)):
+                x = np.asarray([x])
+            else:
+                raise TypeError(
+                    "x must be np.ndarray, pd.core.series.Series, or a list, but is type {}".format(
+                        type(x)
+                    )
+                )
 
     if y is not None:
-        if type(y) is not np.ndarray:
-            assert type(y) is pd.core.series.Series
-            y = y.values
-        if len(y.shape) > 1:
-            y = y.reshape((y.shape[0],))
+        if not isinstance(y, np.ndarray):
+            if isinstance(y, pd.core.series.Series):
+                y = y.values
+            elif isinstance(y, list):
+                y = np.asarray(y)
+            elif isinstance(y, (int, float)):
+                y = np.asarray([y])
+            else:
+                raise TypeError(
+                    "y must be np.ndarray, pd.core.series.Series, or a list, but is type {}".format(
+                        type(y)
+                    )
+                )
 
     if ax is None:
         ax = plt.gca()
