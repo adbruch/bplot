@@ -160,6 +160,7 @@
             
   <h1>Source code for bplot.density</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">bplot.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
+<span class="kn">from</span> <span class="nn">bplot.curve</span> <span class="k">import</span> <span class="n">curve</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
 
@@ -170,7 +171,7 @@
     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
     <span class="n">size</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
     <span class="n">bw_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">n</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span>
     <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -222,13 +223,13 @@
     <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
     <span class="n">density</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kde</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bw_method</span><span class="p">)</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">curve</span><span class="p">(</span>
         <span class="n">xs</span><span class="p">,</span>
         <span class="n">density</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span>
         <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
         <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
-        <span class="n">linestyle</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
-        <span class="n">linewidth</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span>
         <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kws</span>
     <span class="p">)</span>

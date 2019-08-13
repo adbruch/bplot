@@ -160,11 +160,21 @@
             
   <h1>Source code for bplot.std</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">bplot.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
+<span class="kn">from</span> <span class="nn">bplot.line</span> <span class="k">import</span> <span class="n">line_h</span><span class="p">,</span> <span class="n">line_v</span>
+<span class="kn">from</span> <span class="nn">bplot.point</span> <span class="k">import</span> <span class="n">point</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
 <div class="viewcode-block" id="std"><a class="viewcode-back" href="../../std.html#bplot.std">[docs]</a><span class="k">def</span> <span class="nf">std</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span> <span class="n">z_inner</span><span class="o">=</span><span class="mf">0.675</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">z</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span>
+    <span class="n">z_inner</span><span class="o">=</span><span class="mf">0.675</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Draw vertical standard deviation intervals.</span>
 
@@ -213,17 +223,23 @@
     <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span> <span class="o">=</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span>
     <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span> <span class="o">=</span> <span class="n">ybar</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">ybar</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">line_v</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">line_v</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
 
-    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
-    <span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ybar</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span></div>
 
 
 <div class="viewcode-block" id="std_h"><a class="viewcode-back" href="../../std.html#bplot.std_h">[docs]</a><span class="k">def</span> <span class="nf">std_h</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span> <span class="n">z_inner</span><span class="o">=</span><span class="mf">0.675</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">,</span>
+    <span class="n">z</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span>
+    <span class="n">z_inner</span><span class="o">=</span><span class="mf">0.675</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Draw horizontal standard deviation intervals.</span>
 
@@ -269,12 +285,10 @@
     <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span> <span class="o">=</span> <span class="n">xbar</span> <span class="o">-</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">xbar</span> <span class="o">+</span> <span class="n">z_inner</span> <span class="o">*</span> <span class="n">std</span>
     <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span> <span class="o">=</span> <span class="n">xbar</span> <span class="o">-</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span><span class="p">,</span> <span class="n">xbar</span> <span class="o">+</span> <span class="n">z</span> <span class="o">*</span> <span class="n">std</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">line_h</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="p">,</span> <span class="n">uw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">line_h</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">lw_mid</span><span class="p">,</span> <span class="n">uw_mid</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
 
-    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-        <span class="n">xbar</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
-    <span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">point</span><span class="p">(</span><span class="n">xbar</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span></div>
 </pre></div>
 
