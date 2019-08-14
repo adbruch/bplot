@@ -21,7 +21,7 @@ def percentile(
 
     Parameters
     ----------
-    x : int
+    x : scalar
         The location along the x-axis at which the interval is placed.
 
     y : {numpy.array, pandas.core.series.Series}
