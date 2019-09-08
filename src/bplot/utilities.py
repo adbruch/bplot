@@ -291,6 +291,23 @@ def LaTeX(usetex=True):
     return None
 
 
+def dpi(dpi=900):
+    """Set figure dots per inch.
+
+    Parameters
+    ----------
+    dpi : int
+        The number of dots per inch of the figure, defaults to 900.
+
+    Returns
+    -------
+    `None`
+    """
+
+    mpl.rcParams["figure.dpi"] = dpi
+    return None
+
+
 def tight_layout(ax=None):
     """Tighten up layout.
 

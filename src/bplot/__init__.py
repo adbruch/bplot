@@ -21,6 +21,7 @@ from bplot.trace import trace
 from bplot.utilities import (
     clear,
     current_axis,
+    dpi,
     hide_xaxis,
     hide_yaxis,
     labels,
