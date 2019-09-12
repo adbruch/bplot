@@ -1,23 +1,18 @@
 import matplotlib.pyplot as plt
 
-def show(*data):
+def show(*args, **kws):
   """Show a window with the given plot data. Blocks until window is closed.
 
   Parameters
   ----------
-  *data : indexable objects
-      An object with labelled data. (Axes, Line2D, Line2D list, etc...)
+  *args : pyplot args
+  **kws : pyplot kw
 
   Examples
   --------
-    The returned values from most bplot functions can be plotted.
+  Plot a line.
 
-        >>> bplot.show(bplot.line(x, y))
-
-    Plot multiple lines at once.
-
-        >>> bplot.show(bplot.line(x1, y1), bplot.line(x2, y2))
+        >>> bplot.line(x, y)
+        >>> bplot.show()
   """
-  for d in data:
-    plt.plot(data=d)
-  plt.show()
+  plt.show(*args, **kws)
