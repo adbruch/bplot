@@ -19,7 +19,7 @@ def clear(ax=None):
     """
 
     _, _, ax = check_data(None, None, ax)
-    plt.cla()
+    ax.cla()
 
     return ax
 
@@ -161,7 +161,12 @@ def xticks(ticks=[], labels=None, angle=False, ax=None, **kws):
         kws["ha"] = "right"
 
     _, _, ax = check_data(None, None, ax)
-    plt.xticks(ticks=ticks, labels=labels, **kws)
+
+    if labels is None:
+        labels = ticks
+
+    ax.set_xticks(ticks)
+    ax.set_xticklabels(labels, **kws)
     return ax
 
 
@@ -188,7 +193,12 @@ def yticks(ticks=[], labels=None, ax=None, **kws):
     """
 
     _, _, ax = check_data(None, None, ax)
-    plt.yticks(ticks=ticks, labels=labels, **kws)
+
+    if labels is None:
+        labels = ticks
+
+    ax.set_yticks(ticks)
+    ax.set_yticklabels(labels, **kws)
     return ax
 
 
@@ -222,7 +232,7 @@ def title(title="", ax=None, **kws):
         kws["loc"] = "left"
 
     if title is not None:
-        plt.title(title, **kws)
+        ax.set_title(title, **kws)
 
     return ax
 
