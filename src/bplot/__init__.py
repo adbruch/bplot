@@ -1,3 +1,4 @@
+from bplot.show import show
 from bplot.autocorrelation import autocorrelation
 from bplot.box import box, box_h
 from bplot.colors import color, tab_color, old_color, CatColors
