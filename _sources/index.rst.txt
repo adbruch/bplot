@@ -22,6 +22,7 @@ Available plotting tools:
    point
    rug
    mad
+   show
    std
    ste
    trace

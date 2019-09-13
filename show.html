@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rug &mdash; bplot 0.0.1 documentation</title>
+  <title>show &mdash; bplot 0.0.1 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="median absolute deviation" href="mad.html" />
-    <link rel="prev" title="point" href="point.html" /> 
+    <link rel="next" title="standard deviation" href="std.html" />
+    <link rel="prev" title="median absolute deviation" href="mad.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,9 +91,9 @@
 <li class="toctree-l1"><a class="reference internal" href="line.html">line</a></li>
 <li class="toctree-l1"><a class="reference internal" href="percentile.html">percentile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="point.html">point</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">rug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rug.html">rug</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mad.html">median absolute deviation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="show.html">show</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">show</a></li>
 <li class="toctree-l1"><a class="reference internal" href="std.html">standard deviation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ste.html">standard error</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trace.html">trace</a></li>
@@ -144,13 +144,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>rug</li>
+      <li>show</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/rug.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/show.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,31 +163,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="rug">
-<h1>rug<a class="headerlink" href="#rug" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="show">
+<h1>show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="bplot.rug">
-<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">rug</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y=0</em>, <em class="sig-param">color='tab:blue'</em>, <em class="sig-param">label=''</em>, <em class="sig-param">alpha=1.0</em>, <em class="sig-param">ax=None</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/rug.html#rug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.rug" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draw rug.</p>
+<dt id="bplot.show">
+<code class="sig-prename descclassname">bplot.</code><code class="sig-name descname">show</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kws</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bplot/show.html#show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bplot.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a window with the given plot data. Blocks until window is closed.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>{numpy.array</em><em>, </em><em>pandas.core.series.Series}</em>) – The vector of x-axis data for the rug is drawn.</p></li>
-<li><p><strong>y</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a><em>, </em><em>0 by default</em>) – The y-axis specifying the base of the rug.</p></li>
-<li><p><strong>color</strong> (<em>string</em><em>, </em><em>'tab:blue' by default</em>) – The color of the rug.</p></li>
-<li><p><strong>label</strong> (<em>string</em><em>, </em><em>''</em><em> (</em><em>empty</em><em>) </em><em>by default</em>) – The label within a potential legend.</p></li>
-<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a><em>, </em><em>1.0 by default</em>) – The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</p></li>
-<li><p><strong>ax</strong> (<em>matplotlib.pyplot.Axes</em><em>, </em><em>None by default</em>) – The axis onto which the box is drawn.  If left as None,
-matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
+<li><p><strong>*args</strong> (<em>pyplot args</em>) – </p></li>
+<li><p><strong>**kws</strong> (<em>pyplot kw</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> – The <cite>Axes</cite> onto which the box was drawn.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>matplotlib.pyplot.Axes</p>
-</dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>Plot a line.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bplot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -200,10 +195,10 @@ matplotlib.pyplot.gca() is called to get the current <cite>Axes</cite>.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mad.html" class="btn btn-neutral float-right" title="median absolute deviation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="std.html" class="btn btn-neutral float-right" title="standard deviation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="point.html" class="btn btn-neutral float-left" title="point" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mad.html" class="btn btn-neutral float-left" title="median absolute deviation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

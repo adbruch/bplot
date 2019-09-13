@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>bplot.point &mdash; bplot 0.0.1 documentation</title>
+  <title>bplot.show &mdash; bplot 0.0.1 documentation</title>
   
 
   
@@ -144,7 +144,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>bplot.point</li>
+      <li>bplot.show</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,56 +159,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for bplot.point</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">bplot.check_data</span> <span class="k">import</span> <span class="n">check_data</span>
+  <h1>Source code for bplot.show</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
+<div class="viewcode-block" id="show"><a class="viewcode-back" href="../../show.html#bplot.show">[docs]</a><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Show a window with the given plot data. Blocks until window is closed.</span>
 
-<div class="viewcode-block" id="point"><a class="viewcode-back" href="../../point.html#bplot.point">[docs]</a><span class="k">def</span> <span class="nf">point</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span>
-<span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Draw scatter plot.</span>
+<span class="sd">  Parameters</span>
+<span class="sd">  ----------</span>
+<span class="sd">  *args : pyplot args</span>
+<span class="sd">  **kws : pyplot kw</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : {numpy.array, pandas.core.series.Series}</span>
-<span class="sd">        The vector of x-axis data for which points are drawn.</span>
+<span class="sd">  Examples</span>
+<span class="sd">  --------</span>
+<span class="sd">  Plot a line.</span>
 
-<span class="sd">    y : {numpy.array, pandas.core.series.Series}</span>
-<span class="sd">        The vector of y-axis data for which points are drawn.</span>
-
-<span class="sd">    color : string, &#39;tab:blue&#39; by default</span>
-<span class="sd">        The color of the box.</span>
-
-<span class="sd">    label : string, &#39;&#39; (empty) by default</span>
-<span class="sd">        The label within a potential legend.</span>
-
-<span class="sd">    style : string, &#39;o&#39; by default</span>
-<span class="sd">        The shape of the points to draw.</span>
-
-<span class="sd">    size : int, 1 by default</span>
-<span class="sd">        The size of the points to draw.  In matplotlib terms, this is equivalent to mpl.rcParam[&#39;lines.markersize&#39;] = 6**(size + 1).</span>
-
-<span class="sd">    alpha : float, 1.0 by default</span>
-<span class="sd">        The transparency of the color.  Values between 0 (transparent) and 1 (opague) are allowed.</span>
-
-<span class="sd">    ax : matplotlib.pyplot.Axes, None by default</span>
-<span class="sd">        The axis onto which the box is drawn.  If left as None,</span>
-<span class="sd">        matplotlib.pyplot.gca() is called to get the current `Axes`.</span>
-
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-
-<span class="sd">    out : matplotlib.pyplot.Axes</span>
-<span class="sd">        The `Axes` onto which the box was drawn.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
-
-    <span class="n">out</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span> <span class="o">**</span> <span class="p">(</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">out</span></div>
+<span class="sd">        &gt;&gt;&gt; bplot.line(x, y)</span>
+<span class="sd">        &gt;&gt;&gt; bplot.show()</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
