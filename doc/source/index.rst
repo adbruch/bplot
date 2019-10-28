@@ -12,6 +12,7 @@ Available plotting tools:
    :caption: Contents:
 
    box
+   clear
    curve
    density
    grid
